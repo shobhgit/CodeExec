@@ -1,0 +1,218 @@
+{
+  "name": "python-heapq-priority-queue",
+  "expectedStdout": "[1, 2, 5, 7]\n",
+  "request": {
+    "code": "import heapq\nvalues = [7, 2, 5]\nheapq.heapify(values)\nheapq.heappush(values, 1)\nresult = []\nwhile values:\n    result.append(heapq.heappop(values))\nprint(result)",
+    "language": "python"
+  },
+  "response": {
+    "status": "success",
+    "stdout": "[1, 2, 5, 7]\n",
+    "trace": [
+      {
+        "event": "line",
+        "line": 1
+      },
+      {
+        "event": "line",
+        "line": 2,
+        "variables": {
+          "heapq": {
+            "ref": 1
+          }
+        }
+      },
+      {
+        "event": "line",
+        "line": 3,
+        "variables": {
+          "heapq": {
+            "ref": 1
+          },
+          "values": {
+            "ref": 2
+          }
+        },
+        "heap": [
+          {
+            "object": "2",
+            "type": "list",
+            "items": [
+              7,
+              2,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "event": "line",
+        "line": 4,
+        "heap": [
+          {
+            "object": "2",
+            "type": "list",
+            "items": [
+              2,
+              7,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "event": "line",
+        "line": 5,
+        "heap": [
+          {
+            "object": "2",
+            "type": "list",
+            "items": [
+              1,
+              2,
+              5,
+              7
+            ]
+          }
+        ]
+      },
+      {
+        "event": "line",
+        "line": 6,
+        "variables": {
+          "heapq": {
+            "ref": 1
+          },
+          "values": {
+            "ref": 2
+          },
+          "result": {
+            "ref": 3
+          }
+        },
+        "heap": [
+          {
+            "object": "3",
+            "value": [
+              "LIST"
+            ]
+          }
+        ]
+      },
+      {
+        "event": "line",
+        "line": 7
+      },
+      {
+        "event": "line",
+        "line": 6,
+        "heap": [
+          {
+            "object": "2",
+            "type": "list",
+            "items": [
+              2,
+              7,
+              5
+            ]
+          },
+          {
+            "object": "3",
+            "type": "list",
+            "items": [
+              1
+            ]
+          }
+        ]
+      },
+      {
+        "event": "line",
+        "line": 7
+      },
+      {
+        "event": "line",
+        "line": 6,
+        "heap": [
+          {
+            "object": "2",
+            "type": "list",
+            "items": [
+              5,
+              7
+            ]
+          },
+          {
+            "object": "3",
+            "type": "list",
+            "items": [
+              1,
+              2
+            ]
+          }
+        ]
+      },
+      {
+        "event": "line",
+        "line": 7
+      },
+      {
+        "event": "line",
+        "line": 6,
+        "heap": [
+          {
+            "object": "2",
+            "type": "list",
+            "items": [
+              7
+            ]
+          },
+          {
+            "object": "3",
+            "type": "list",
+            "items": [
+              1,
+              2,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "event": "line",
+        "line": 7
+      },
+      {
+        "event": "line",
+        "line": 6,
+        "heap": [
+          {
+            "object": "2",
+            "value": [
+              "LIST"
+            ]
+          },
+          {
+            "object": "3",
+            "type": "list",
+            "items": [
+              1,
+              2,
+              5,
+              7
+            ]
+          }
+        ]
+      },
+      {
+        "event": "line",
+        "line": 8
+      },
+      {
+        "event": "return",
+        "line": 8,
+        "stdout": "[1, 2, 5, 7]\n"
+      }
+    ],
+    "error": null
+  }
+}

@@ -1,0 +1,224 @@
+{
+  "name": "python-bst-insert-search-minimal",
+  "expectedStdout": "True\n",
+  "request": {
+    "language": "python",
+    "code": "root = {\"v\": 8, \"l\": {\"v\": 3, \"l\": None, \"r\": None}, \"r\": {\"v\": 10, \"l\": None, \"r\": None}}\nvalue = 4\nparent = root[\"l\"]\nnode = {\"v\": value, \"l\": None, \"r\": None}\nif value < parent[\"v\"]:\n    parent[\"l\"] = node\nelse:\n    parent[\"r\"] = node\ncurrent = root[\"l\"]\nif value > current[\"v\"]:\n    current = current[\"r\"]\nprint(current[\"v\"] == value)"
+  },
+  "response": {
+    "status": "success",
+    "stdout": "True\n",
+    "trace": [
+      {
+        "event": "line",
+        "line": 1
+      },
+      {
+        "event": "line",
+        "line": 2,
+        "variables": {
+          "root": {
+            "ref": 1
+          }
+        },
+        "heap": [
+          {
+            "object": "1",
+            "type": "dict",
+            "entries": [
+              {
+                "key": "v",
+                "value": 8
+              },
+              {
+                "key": "l",
+                "value": {
+                  "ref": 2
+                }
+              },
+              {
+                "key": "r",
+                "value": {
+                  "ref": 3
+                }
+              }
+            ]
+          },
+          {
+            "object": "2",
+            "type": "dict",
+            "entries": [
+              {
+                "key": "v",
+                "value": 3
+              },
+              {
+                "key": "l",
+                "value": null
+              },
+              {
+                "key": "r",
+                "value": null
+              }
+            ]
+          },
+          {
+            "object": "3",
+            "type": "dict",
+            "entries": [
+              {
+                "key": "v",
+                "value": 10
+              },
+              {
+                "key": "l",
+                "value": null
+              },
+              {
+                "key": "r",
+                "value": null
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "event": "line",
+        "line": 3,
+        "variables": {
+          "root": {
+            "ref": 1
+          },
+          "value": 4
+        }
+      },
+      {
+        "event": "line",
+        "line": 4,
+        "variables": {
+          "root": {
+            "ref": 1
+          },
+          "value": 4,
+          "parent": {
+            "ref": 2
+          }
+        }
+      },
+      {
+        "event": "line",
+        "line": 5,
+        "variables": {
+          "root": {
+            "ref": 1
+          },
+          "value": 4,
+          "parent": {
+            "ref": 2
+          },
+          "node": {
+            "ref": 4
+          }
+        },
+        "heap": [
+          {
+            "object": "4",
+            "type": "dict",
+            "entries": [
+              {
+                "key": "v",
+                "value": 4
+              },
+              {
+                "key": "l",
+                "value": null
+              },
+              {
+                "key": "r",
+                "value": null
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "event": "line",
+        "line": 8
+      },
+      {
+        "event": "line",
+        "line": 9,
+        "heap": [
+          {
+            "object": "2",
+            "type": "dict",
+            "entries": [
+              {
+                "key": "v",
+                "value": 3
+              },
+              {
+                "key": "l",
+                "value": null
+              },
+              {
+                "key": "r",
+                "value": {
+                  "ref": 4
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "event": "line",
+        "line": 10,
+        "variables": {
+          "root": {
+            "ref": 1
+          },
+          "value": 4,
+          "parent": {
+            "ref": 2
+          },
+          "node": {
+            "ref": 4
+          },
+          "current": {
+            "ref": 2
+          }
+        }
+      },
+      {
+        "event": "line",
+        "line": 11
+      },
+      {
+        "event": "line",
+        "line": 12,
+        "variables": {
+          "root": {
+            "ref": 1
+          },
+          "value": 4,
+          "parent": {
+            "ref": 2
+          },
+          "node": {
+            "ref": 4
+          },
+          "current": {
+            "ref": 4
+          }
+        }
+      },
+      {
+        "event": "return",
+        "line": 12,
+        "stdout": "True\n"
+      }
+    ],
+    "error": null
+  }
+}

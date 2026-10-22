@@ -1,0 +1,147 @@
+{
+  "name": "python-linked-nodes",
+  "request": {
+    "code": "class Node:\n    def __init__(self, value):\n        self.value = value\n        self.next = None\na = Node(1)\nb = Node(2)\na.next = b\nprint(a.value, a.next.value)",
+    "language": "python"
+  },
+  "response": {
+    "status": "success",
+    "stdout": "1 2\n",
+    "trace": [
+      {
+        "event": "line",
+        "line": 1
+      },
+      {
+        "event": "line",
+        "line": 5
+      },
+      {
+        "event": "call",
+        "line": 2,
+        "function": "__init__"
+      },
+      {
+        "event": "line",
+        "line": 3,
+        "function": "__init__"
+      },
+      {
+        "event": "line",
+        "line": 4,
+        "function": "__init__",
+        "heap": [
+          {
+            "object": "1",
+            "type": "object",
+            "class": "Node",
+            "changes": {
+              "value": 1
+            }
+          }
+        ]
+      },
+      {
+        "event": "return",
+        "line": 4,
+        "function": "__init__",
+        "heap": [
+          {
+            "object": "1",
+            "type": "object",
+            "class": "Node",
+            "changes": {
+              "next": null,
+              "value": 1
+            }
+          }
+        ]
+      },
+      {
+        "event": "line",
+        "line": 6,
+        "variables": {
+          "a": {
+            "ref": 1
+          }
+        }
+      },
+      {
+        "event": "call",
+        "line": 2,
+        "function": "__init__"
+      },
+      {
+        "event": "line",
+        "line": 3,
+        "function": "__init__"
+      },
+      {
+        "event": "line",
+        "line": 4,
+        "function": "__init__",
+        "heap": [
+          {
+            "object": "2",
+            "type": "object",
+            "class": "Node",
+            "changes": {
+              "value": 2
+            }
+          }
+        ]
+      },
+      {
+        "event": "return",
+        "line": 4,
+        "function": "__init__",
+        "heap": [
+          {
+            "object": "2",
+            "type": "object",
+            "class": "Node",
+            "changes": {
+              "next": null,
+              "value": 2
+            }
+          }
+        ]
+      },
+      {
+        "event": "line",
+        "line": 7,
+        "variables": {
+          "a": {
+            "ref": 1
+          },
+          "b": {
+            "ref": 2
+          }
+        }
+      },
+      {
+        "event": "line",
+        "line": 8,
+        "heap": [
+          {
+            "object": "1",
+            "type": "object",
+            "class": "Node",
+            "changes": {
+              "next": {
+                "ref": 2
+              },
+              "value": 1
+            }
+          }
+        ]
+      },
+      {
+        "event": "return",
+        "line": 8,
+        "stdout": "1 2\n"
+      }
+    ],
+    "error": null
+  }
+}

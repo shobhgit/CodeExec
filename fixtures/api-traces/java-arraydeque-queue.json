@@ -1,0 +1,261 @@
+{
+  "name": "java-arraydeque-queue",
+  "request": {
+    "language": "java",
+    "code": "import java.util.ArrayDeque;\npublic class Main {\n    public static void main(String[] args) {\n        ArrayDeque<Integer> queue = new ArrayDeque<>();\n        queue.add(4);\n        queue.add(8);\n        int first = queue.remove();\n        System.out.println(first + queue.peek());\n    }\n}"
+  },
+  "response": {
+    "status": "success",
+    "stdout": "12\n",
+    "trace": [
+      {
+        "event": "line",
+        "line": 5,
+        "function": "main",
+        "variables": {
+          "queue": {
+            "ref": 55
+          }
+        },
+        "heap": [
+          {
+            "object": "65",
+            "type": "array",
+            "items": [
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ]
+          },
+          {
+            "object": "55",
+            "type": "object",
+            "class": "java.util.ArrayDeque",
+            "fields": {
+              "elements": {
+                "ref": 65
+              },
+              "head": 0,
+              "tail": 0
+            }
+          }
+        ]
+      },
+      {
+        "event": "line",
+        "line": 6,
+        "function": "main",
+        "variables": {
+          "queue": {
+            "ref": 55
+          }
+        },
+        "heap": [
+          {
+            "object": "65",
+            "type": "array",
+            "items": [
+              {
+                "ref": 66
+              },
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ]
+          },
+          {
+            "object": "55",
+            "type": "object",
+            "class": "java.util.ArrayDeque",
+            "fields": {
+              "elements": {
+                "ref": 65
+              },
+              "head": 0,
+              "tail": 1
+            }
+          }
+        ]
+      },
+      {
+        "event": "line",
+        "line": 7,
+        "function": "main",
+        "variables": {
+          "queue": {
+            "ref": 55
+          }
+        },
+        "heap": [
+          {
+            "object": "65",
+            "type": "array",
+            "items": [
+              {
+                "ref": 66
+              },
+              {
+                "ref": 67
+              },
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ]
+          },
+          {
+            "object": "55",
+            "type": "object",
+            "class": "java.util.ArrayDeque",
+            "fields": {
+              "elements": {
+                "ref": 65
+              },
+              "head": 0,
+              "tail": 2
+            }
+          }
+        ]
+      },
+      {
+        "event": "line",
+        "line": 8,
+        "function": "main",
+        "variables": {
+          "queue": {
+            "ref": 55
+          },
+          "first": 4
+        },
+        "heap": [
+          {
+            "object": "65",
+            "type": "array",
+            "items": [
+              null,
+              {
+                "ref": 67
+              },
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ]
+          },
+          {
+            "object": "55",
+            "type": "object",
+            "class": "java.util.ArrayDeque",
+            "fields": {
+              "elements": {
+                "ref": 65
+              },
+              "head": 1,
+              "tail": 2
+            }
+          }
+        ]
+      },
+      {
+        "event": "line",
+        "line": 9,
+        "function": "main",
+        "variables": {
+          "queue": {
+            "ref": 55
+          },
+          "first": 4
+        },
+        "heap": [
+          {
+            "object": "65",
+            "type": "array",
+            "items": [
+              null,
+              {
+                "ref": 67
+              },
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ]
+          },
+          {
+            "object": "55",
+            "type": "object",
+            "class": "java.util.ArrayDeque",
+            "fields": {
+              "elements": {
+                "ref": 65
+              },
+              "head": 1,
+              "tail": 2
+            }
+          }
+        ]
+      }
+    ],
+    "error": null
+  }
+}

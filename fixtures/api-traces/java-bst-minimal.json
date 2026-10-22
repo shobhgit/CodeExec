@@ -1,0 +1,289 @@
+{
+  "name": "java-bst-minimal",
+  "expectedStdout": "true\n",
+  "request": {
+    "language": "java",
+    "code": "public class Main {\n    static class N { int v; N l, r; N(int v) { this.v = v; } }\n    public static void main(String[] args) {\n        N root = new N(8); root.l = new N(3); root.r = new N(10);\n        int value = 4; N node = root; N parent = null;\n        while (node != null) { parent = node; node = value < node.v ? node.l : node.r; }\n        if (value < parent.v) parent.l = new N(value); else parent.r = new N(value);\n        System.out.println(parent.r.v == value);\n    }\n}"
+  },
+  "response": {
+    "status": "success",
+    "stdout": "true\n",
+    "trace": [
+      {
+        "event": "line",
+        "line": 5,
+        "function": "main",
+        "variables": {
+          "root": {
+            "ref": 56
+          }
+        },
+        "heap": [
+          {
+            "object": "57",
+            "type": "object",
+            "class": "Main$N",
+            "fields": {
+              "v": 3,
+              "l": null,
+              "r": null
+            }
+          },
+          {
+            "object": "58",
+            "type": "object",
+            "class": "Main$N",
+            "fields": {
+              "v": 10,
+              "l": null,
+              "r": null
+            }
+          },
+          {
+            "object": "56",
+            "type": "object",
+            "class": "Main$N",
+            "fields": {
+              "v": 8,
+              "l": {
+                "ref": 57
+              },
+              "r": {
+                "ref": 58
+              }
+            }
+          }
+        ]
+      },
+      {
+        "event": "line",
+        "line": 6,
+        "function": "main",
+        "variables": {
+          "root": {
+            "ref": 56
+          },
+          "value": 4,
+          "node": {
+            "ref": 56
+          },
+          "parent": null
+        },
+        "heap": [
+          {
+            "object": "57",
+            "type": "object",
+            "class": "Main$N",
+            "fields": {
+              "v": 3,
+              "l": null,
+              "r": null
+            }
+          },
+          {
+            "object": "58",
+            "type": "object",
+            "class": "Main$N",
+            "fields": {
+              "v": 10,
+              "l": null,
+              "r": null
+            }
+          },
+          {
+            "object": "56",
+            "type": "object",
+            "class": "Main$N",
+            "fields": {
+              "v": 8,
+              "l": {
+                "ref": 57
+              },
+              "r": {
+                "ref": 58
+              }
+            }
+          }
+        ]
+      },
+      {
+        "event": "line",
+        "line": 7,
+        "function": "main",
+        "variables": {
+          "root": {
+            "ref": 56
+          },
+          "value": 4,
+          "node": null,
+          "parent": {
+            "ref": 57
+          }
+        },
+        "heap": [
+          {
+            "object": "57",
+            "type": "object",
+            "class": "Main$N",
+            "fields": {
+              "v": 3,
+              "l": null,
+              "r": null
+            }
+          },
+          {
+            "object": "58",
+            "type": "object",
+            "class": "Main$N",
+            "fields": {
+              "v": 10,
+              "l": null,
+              "r": null
+            }
+          },
+          {
+            "object": "56",
+            "type": "object",
+            "class": "Main$N",
+            "fields": {
+              "v": 8,
+              "l": {
+                "ref": 57
+              },
+              "r": {
+                "ref": 58
+              }
+            }
+          }
+        ]
+      },
+      {
+        "event": "line",
+        "line": 8,
+        "function": "main",
+        "variables": {
+          "root": {
+            "ref": 56
+          },
+          "value": 4,
+          "node": null,
+          "parent": {
+            "ref": 57
+          }
+        },
+        "heap": [
+          {
+            "object": "59",
+            "type": "object",
+            "class": "Main$N",
+            "fields": {
+              "v": 4,
+              "l": null,
+              "r": null
+            }
+          },
+          {
+            "object": "57",
+            "type": "object",
+            "class": "Main$N",
+            "fields": {
+              "v": 3,
+              "l": null,
+              "r": {
+                "ref": 59
+              }
+            }
+          },
+          {
+            "object": "58",
+            "type": "object",
+            "class": "Main$N",
+            "fields": {
+              "v": 10,
+              "l": null,
+              "r": null
+            }
+          },
+          {
+            "object": "56",
+            "type": "object",
+            "class": "Main$N",
+            "fields": {
+              "v": 8,
+              "l": {
+                "ref": 57
+              },
+              "r": {
+                "ref": 58
+              }
+            }
+          }
+        ]
+      },
+      {
+        "event": "line",
+        "line": 9,
+        "function": "main",
+        "variables": {
+          "root": {
+            "ref": 56
+          },
+          "value": 4,
+          "node": null,
+          "parent": {
+            "ref": 57
+          }
+        },
+        "heap": [
+          {
+            "object": "59",
+            "type": "object",
+            "class": "Main$N",
+            "fields": {
+              "v": 4,
+              "l": null,
+              "r": null
+            }
+          },
+          {
+            "object": "57",
+            "type": "object",
+            "class": "Main$N",
+            "fields": {
+              "v": 3,
+              "l": null,
+              "r": {
+                "ref": 59
+              }
+            }
+          },
+          {
+            "object": "58",
+            "type": "object",
+            "class": "Main$N",
+            "fields": {
+              "v": 10,
+              "l": null,
+              "r": null
+            }
+          },
+          {
+            "object": "56",
+            "type": "object",
+            "class": "Main$N",
+            "fields": {
+              "v": 8,
+              "l": {
+                "ref": 57
+              },
+              "r": {
+                "ref": 58
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "error": null
+  }
+}

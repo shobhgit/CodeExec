@@ -1,0 +1,13 @@
+{
+  "name": "api-unsupported-language",
+  "request": {
+    "language": "javascript",
+    "code": "console.log(1)"
+  },
+  "response": {
+    "status": "error",
+    "stdout": null,
+    "trace": null,
+    "error": null
+  }
+}

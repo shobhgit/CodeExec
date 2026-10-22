@@ -1,0 +1,64 @@
+{
+  "name": "python-tuple-set",
+  "request": {
+    "code": "coords = (2, 3)\nunique = {1, 2, 2}\nprint(coords, sorted(unique))",
+    "language": "python"
+  },
+  "response": {
+    "status": "success",
+    "stdout": "(2, 3) [1, 2]\n",
+    "trace": [
+      {
+        "event": "line",
+        "line": 1
+      },
+      {
+        "event": "line",
+        "line": 2,
+        "variables": {
+          "coords": {
+            "ref": 1
+          }
+        },
+        "heap": [
+          {
+            "object": "1",
+            "value": [
+              "TUPLE",
+              2,
+              3
+            ]
+          }
+        ]
+      },
+      {
+        "event": "line",
+        "line": 3,
+        "variables": {
+          "coords": {
+            "ref": 1
+          },
+          "unique": {
+            "ref": 2
+          }
+        },
+        "heap": [
+          {
+            "object": "2",
+            "value": [
+              "SET",
+              1,
+              2
+            ]
+          }
+        ]
+      },
+      {
+        "event": "return",
+        "line": 3,
+        "stdout": "(2, 3) [1, 2]\n"
+      }
+    ],
+    "error": null
+  }
+}

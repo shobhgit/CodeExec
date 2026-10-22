@@ -1,0 +1,81 @@
+{
+  "name": "python-trie-minimal",
+  "expectedStdout": "True\n",
+  "request": {
+    "language": "python",
+    "code": "trie = {}\ntrie.setdefault(\"c\", {}).setdefault(\"a\", {})[\"t\"] = True\nprint(trie.get(\"c\", {}).get(\"a\", {}).get(\"t\", False))"
+  },
+  "response": {
+    "status": "success",
+    "stdout": "True\n",
+    "trace": [
+      {
+        "event": "line",
+        "line": 1
+      },
+      {
+        "event": "line",
+        "line": 2,
+        "variables": {
+          "trie": {
+            "ref": 1
+          }
+        },
+        "heap": [
+          {
+            "object": "1",
+            "value": [
+              "DICT"
+            ]
+          }
+        ]
+      },
+      {
+        "event": "line",
+        "line": 3,
+        "heap": [
+          {
+            "object": "1",
+            "type": "dict",
+            "entries": [
+              {
+                "key": "c",
+                "value": {
+                  "ref": 2
+                }
+              }
+            ]
+          },
+          {
+            "object": "2",
+            "type": "dict",
+            "entries": [
+              {
+                "key": "a",
+                "value": {
+                  "ref": 3
+                }
+              }
+            ]
+          },
+          {
+            "object": "3",
+            "type": "dict",
+            "entries": [
+              {
+                "key": "t",
+                "value": true
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "event": "return",
+        "line": 3,
+        "stdout": "True\n"
+      }
+    ],
+    "error": null
+  }
+}

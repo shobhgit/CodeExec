@@ -1,0 +1,86 @@
+{
+  "name": "python-stack-list",
+  "request": {
+    "code": "stack = []\nstack.append(\"a\")\nstack.append(\"b\")\ntop = stack.pop()\nprint(top, stack)",
+    "language": "python"
+  },
+  "response": {
+    "status": "success",
+    "stdout": "b ['a']\n",
+    "trace": [
+      {
+        "event": "line",
+        "line": 1
+      },
+      {
+        "event": "line",
+        "line": 2,
+        "variables": {
+          "stack": {
+            "ref": 1
+          }
+        },
+        "heap": [
+          {
+            "object": "1",
+            "value": [
+              "LIST"
+            ]
+          }
+        ]
+      },
+      {
+        "event": "line",
+        "line": 3,
+        "heap": [
+          {
+            "object": "1",
+            "type": "list",
+            "items": [
+              "a"
+            ]
+          }
+        ]
+      },
+      {
+        "event": "line",
+        "line": 4,
+        "heap": [
+          {
+            "object": "1",
+            "type": "list",
+            "items": [
+              "a",
+              "b"
+            ]
+          }
+        ]
+      },
+      {
+        "event": "line",
+        "line": 5,
+        "variables": {
+          "stack": {
+            "ref": 1
+          },
+          "top": "b"
+        },
+        "heap": [
+          {
+            "object": "1",
+            "type": "list",
+            "items": [
+              "a"
+            ]
+          }
+        ]
+      },
+      {
+        "event": "return",
+        "line": 5,
+        "stdout": "b ['a']\n"
+      }
+    ],
+    "error": null
+  }
+}

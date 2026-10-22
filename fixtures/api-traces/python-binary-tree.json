@@ -1,0 +1,16 @@
+{
+  "name": "python-binary-tree",
+  "request": {
+    "language": "python",
+    "code": "class Node:\n    def __init__(self, value):\n        self.value = value\n        self.left = None\n        self.right = None\nroot = Node(2)\nroot.left = Node(1)\nroot.right = Node(3)\nprint(root.left.value + root.value + root.right.value)"
+  },
+  "response": {
+    "status": "error",
+    "stdout": null,
+    "trace": null,
+    "error": {
+      "message": "Docker execution failed: Code execution timed out after 5 seconds",
+      "type": "RuntimeException"
+    }
+  }
+}

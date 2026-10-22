@@ -1,0 +1,112 @@
+{
+  "name": "python-graph-cycle-minimal",
+  "expectedStdout": "True\n",
+  "request": {
+    "language": "python",
+    "code": "class Node: pass\na = Node()\nb = Node()\nc = Node()\na.next = b\nb.next = c\nc.next = a\nprint(c.next is a and a.next.next is c)"
+  },
+  "response": {
+    "status": "success",
+    "stdout": "True\n",
+    "trace": [
+      {
+        "event": "line",
+        "line": 1
+      },
+      {
+        "event": "line",
+        "line": 2
+      },
+      {
+        "event": "line",
+        "line": 3,
+        "variables": {
+          "a": {
+            "ref": 1
+          }
+        }
+      },
+      {
+        "event": "line",
+        "line": 4,
+        "variables": {
+          "a": {
+            "ref": 1
+          },
+          "b": {
+            "ref": 2
+          }
+        }
+      },
+      {
+        "event": "line",
+        "line": 5,
+        "variables": {
+          "a": {
+            "ref": 1
+          },
+          "b": {
+            "ref": 2
+          },
+          "c": {
+            "ref": 3
+          }
+        }
+      },
+      {
+        "event": "line",
+        "line": 6,
+        "heap": [
+          {
+            "object": "1",
+            "type": "object",
+            "class": "Node",
+            "changes": {
+              "next": {
+                "ref": 2
+              }
+            }
+          }
+        ]
+      },
+      {
+        "event": "line",
+        "line": 7,
+        "heap": [
+          {
+            "object": "2",
+            "type": "object",
+            "class": "Node",
+            "changes": {
+              "next": {
+                "ref": 3
+              }
+            }
+          }
+        ]
+      },
+      {
+        "event": "line",
+        "line": 8,
+        "heap": [
+          {
+            "object": "3",
+            "type": "object",
+            "class": "Node",
+            "changes": {
+              "next": {
+                "ref": 1
+              }
+            }
+          }
+        ]
+      },
+      {
+        "event": "return",
+        "line": 8,
+        "stdout": "True\n"
+      }
+    ],
+    "error": null
+  }
+}

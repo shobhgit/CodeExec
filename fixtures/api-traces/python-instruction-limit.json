@@ -1,0 +1,16 @@
+{
+  "name": "python-instruction-limit",
+  "request": {
+    "language": "python",
+    "code": "for i in range(1001):\n    x = i"
+  },
+  "response": {
+    "status": "error",
+    "stdout": null,
+    "trace": null,
+    "error": {
+      "message": "Docker execution failed: Code execution timed out after 5 seconds",
+      "type": "RuntimeException"
+    }
+  }
+}

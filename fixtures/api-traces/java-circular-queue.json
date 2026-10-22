@@ -1,0 +1,81 @@
+{
+  "name": "java-circular-queue",
+  "expectedStdout": "[2, 3] 2\n",
+  "request": {
+    "code": "import java.util.Arrays;\npublic class Main {\n    static class CircularQueue {\n        int[] data = new int[3]; int front, size;\n        void add(int value) { data[(front + size) % data.length] = value; size++; }\n        int remove() { int value = data[front]; front = (front + 1) % data.length; size--; return value; }\n        public String toString() { int[] out = new int[size]; for (int i = 0; i < size; i++) out[i] = data[(front + i) % data.length]; return Arrays.toString(out); }\n    }\n    public static void main(String[] args) {\n        CircularQueue queue = new CircularQueue(); queue.add(1); queue.add(2); queue.remove(); queue.add(3);\n        System.out.println(queue + \" \" + queue.size);\n    }\n}",
+    "language": "java"
+  },
+  "response": {
+    "status": "success",
+    "stdout": "[2, 3] 2\n",
+    "trace": [
+      {
+        "event": "line",
+        "line": 11,
+        "function": "main",
+        "variables": {
+          "queue": {
+            "ref": 56
+          }
+        },
+        "heap": [
+          {
+            "object": "57",
+            "type": "array",
+            "items": [
+              1,
+              2,
+              3
+            ]
+          },
+          {
+            "object": "56",
+            "type": "object",
+            "class": "Main$CircularQueue",
+            "fields": {
+              "data": {
+                "ref": 57
+              },
+              "front": 1,
+              "size": 2
+            }
+          }
+        ]
+      },
+      {
+        "event": "line",
+        "line": 12,
+        "function": "main",
+        "variables": {
+          "queue": {
+            "ref": 56
+          }
+        },
+        "heap": [
+          {
+            "object": "57",
+            "type": "array",
+            "items": [
+              1,
+              2,
+              3
+            ]
+          },
+          {
+            "object": "56",
+            "type": "object",
+            "class": "Main$CircularQueue",
+            "fields": {
+              "data": {
+                "ref": 57
+              },
+              "front": 1,
+              "size": 2
+            }
+          }
+        ]
+      }
+    ],
+    "error": null
+  }
+}

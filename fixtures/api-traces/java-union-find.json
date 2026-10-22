@@ -1,0 +1,17 @@
+{
+  "name": "java-union-find",
+  "expectedStdout": "true [0, 0, 0, 2]\n",
+  "request": {
+    "code": "import java.util.Arrays;\npublic class Main {\n    static int find(int[] parent, int x) { if (parent[x] != x) parent[x] = find(parent, parent[x]); return parent[x]; }\n    static void union(int[] parent, int a, int b) { parent[find(parent, a)] = find(parent, b); }\n    public static void main(String[] args) {\n        int[] parent = {0, 1, 2, 3};\n        union(parent, 0, 1); union(parent, 2, 3); union(parent, 1, 2);\n        System.out.println((find(parent, 0) == find(parent, 3)) + \" \" + Arrays.toString(parent));\n    }\n}",
+    "language": "java"
+  },
+  "response": {
+    "status": "error",
+    "stdout": null,
+    "trace": null,
+    "error": {
+      "message": "Docker execution failed: Code execution timed out after 5 seconds",
+      "type": "RuntimeException"
+    }
+  }
+}

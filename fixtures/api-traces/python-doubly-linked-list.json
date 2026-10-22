@@ -1,0 +1,177 @@
+{
+  "name": "python-doubly-linked-list",
+  "expectedStdout": "1 2 3 True\n",
+  "request": {
+    "code": "class Node: pass\nfirst = Node()\nfirst.value = 1\nmiddle = Node()\nmiddle.value = 2\nlast = Node()\nlast.value = 3\nfirst.next = middle\nmiddle.prev = first\nmiddle.next = last\nlast.prev = middle\nprint(first.value, first.next.value, last.value, last.prev.prev is first)",
+    "language": "python"
+  },
+  "response": {
+    "status": "success",
+    "stdout": "1 2 3 True\n",
+    "trace": [
+      {
+        "event": "line",
+        "line": 1
+      },
+      {
+        "event": "line",
+        "line": 2
+      },
+      {
+        "event": "line",
+        "line": 3,
+        "variables": {
+          "first": {
+            "ref": 1
+          }
+        }
+      },
+      {
+        "event": "line",
+        "line": 4,
+        "heap": [
+          {
+            "object": "1",
+            "type": "object",
+            "class": "Node",
+            "changes": {
+              "value": 1
+            }
+          }
+        ]
+      },
+      {
+        "event": "line",
+        "line": 5,
+        "variables": {
+          "first": {
+            "ref": 1
+          },
+          "middle": {
+            "ref": 2
+          }
+        }
+      },
+      {
+        "event": "line",
+        "line": 6,
+        "heap": [
+          {
+            "object": "2",
+            "type": "object",
+            "class": "Node",
+            "changes": {
+              "value": 2
+            }
+          }
+        ]
+      },
+      {
+        "event": "line",
+        "line": 7,
+        "variables": {
+          "first": {
+            "ref": 1
+          },
+          "middle": {
+            "ref": 2
+          },
+          "last": {
+            "ref": 3
+          }
+        }
+      },
+      {
+        "event": "line",
+        "line": 8,
+        "heap": [
+          {
+            "object": "3",
+            "type": "object",
+            "class": "Node",
+            "changes": {
+              "value": 3
+            }
+          }
+        ]
+      },
+      {
+        "event": "line",
+        "line": 9,
+        "heap": [
+          {
+            "object": "1",
+            "type": "object",
+            "class": "Node",
+            "changes": {
+              "next": {
+                "ref": 2
+              },
+              "value": 1
+            }
+          }
+        ]
+      },
+      {
+        "event": "line",
+        "line": 10,
+        "heap": [
+          {
+            "object": "2",
+            "type": "object",
+            "class": "Node",
+            "changes": {
+              "prev": {
+                "ref": 1
+              },
+              "value": 2
+            }
+          }
+        ]
+      },
+      {
+        "event": "line",
+        "line": 11,
+        "heap": [
+          {
+            "object": "2",
+            "type": "object",
+            "class": "Node",
+            "changes": {
+              "next": {
+                "ref": 3
+              },
+              "prev": {
+                "ref": 1
+              },
+              "value": 2
+            }
+          }
+        ]
+      },
+      {
+        "event": "line",
+        "line": 12,
+        "heap": [
+          {
+            "object": "3",
+            "type": "object",
+            "class": "Node",
+            "changes": {
+              "prev": {
+                "ref": 2
+              },
+              "value": 3
+            }
+          }
+        ]
+      },
+      {
+        "event": "return",
+        "line": 12,
+        "stdout": "1 2 3 True\n"
+      }
+    ],
+    "error": null
+  }
+}

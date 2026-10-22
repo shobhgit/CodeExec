@@ -1,0 +1,264 @@
+{
+  "name": "python-bst-insert-search",
+  "expectedStdout": "True 4\n",
+  "request": {
+    "code": "class Node: pass\nroot = Node()\nroot.value = 8\nroot.left = Node()\nroot.left.value = 3\nroot.right = Node()\nroot.right.value = 10\nroot.left.right = Node()\nroot.left.right.value = 6\nvalue = 4\ncurrent = root\nwhile current:\n    parent = current\n    current = current.left if value < current.value else current.right\nnode = Node()\nnode.value = value\nif value < parent.value:\n    parent.left = node\nelse:\n    parent.right = node\ncurrent = root\nfound = False\nwhile current:\n    if current.value == value:\n        found = True\n        break\n    current = current.left if value < current.value else current.right\nprint(found, root.left.left.value)",
+    "language": "python"
+  },
+  "response": {
+    "status": "error",
+    "stdout": "",
+    "trace": [
+      {
+        "event": "line",
+        "line": 1
+      },
+      {
+        "event": "line",
+        "line": 2
+      },
+      {
+        "event": "line",
+        "line": 3,
+        "variables": {
+          "root": {
+            "ref": 1
+          }
+        }
+      },
+      {
+        "event": "line",
+        "line": 4,
+        "heap": [
+          {
+            "object": "1",
+            "type": "object",
+            "class": "Node",
+            "changes": {
+              "value": 8
+            }
+          }
+        ]
+      },
+      {
+        "event": "line",
+        "line": 5,
+        "heap": [
+          {
+            "object": "1",
+            "type": "object",
+            "class": "Node",
+            "changes": {
+              "left": {
+                "ref": 2
+              },
+              "value": 8
+            }
+          }
+        ]
+      },
+      {
+        "event": "line",
+        "line": 6,
+        "heap": [
+          {
+            "object": "2",
+            "type": "object",
+            "class": "Node",
+            "changes": {
+              "value": 3
+            }
+          }
+        ]
+      },
+      {
+        "event": "line",
+        "line": 7,
+        "heap": [
+          {
+            "object": "1",
+            "type": "object",
+            "class": "Node",
+            "changes": {
+              "left": {
+                "ref": 2
+              },
+              "right": {
+                "ref": 3
+              },
+              "value": 8
+            }
+          }
+        ]
+      },
+      {
+        "event": "line",
+        "line": 8,
+        "heap": [
+          {
+            "object": "3",
+            "type": "object",
+            "class": "Node",
+            "changes": {
+              "value": 10
+            }
+          }
+        ]
+      },
+      {
+        "event": "line",
+        "line": 9,
+        "heap": [
+          {
+            "object": "2",
+            "type": "object",
+            "class": "Node",
+            "changes": {
+              "right": {
+                "ref": 4
+              },
+              "value": 3
+            }
+          }
+        ]
+      },
+      {
+        "event": "line",
+        "line": 10,
+        "heap": [
+          {
+            "object": "4",
+            "type": "object",
+            "class": "Node",
+            "changes": {
+              "value": 6
+            }
+          }
+        ]
+      },
+      {
+        "event": "line",
+        "line": 11,
+        "variables": {
+          "root": {
+            "ref": 1
+          },
+          "value": 4
+        }
+      },
+      {
+        "event": "line",
+        "line": 12,
+        "variables": {
+          "root": {
+            "ref": 1
+          },
+          "value": 4,
+          "current": {
+            "ref": 1
+          }
+        }
+      },
+      {
+        "event": "line",
+        "line": 13
+      },
+      {
+        "event": "line",
+        "line": 14,
+        "variables": {
+          "root": {
+            "ref": 1
+          },
+          "value": 4,
+          "current": {
+            "ref": 1
+          },
+          "parent": {
+            "ref": 1
+          }
+        }
+      },
+      {
+        "event": "line",
+        "line": 12,
+        "variables": {
+          "root": {
+            "ref": 1
+          },
+          "value": 4,
+          "current": {
+            "ref": 2
+          },
+          "parent": {
+            "ref": 1
+          }
+        }
+      },
+      {
+        "event": "line",
+        "line": 13
+      },
+      {
+        "event": "line",
+        "line": 14,
+        "variables": {
+          "root": {
+            "ref": 1
+          },
+          "value": 4,
+          "current": {
+            "ref": 2
+          },
+          "parent": {
+            "ref": 2
+          }
+        }
+      },
+      {
+        "event": "line",
+        "line": 12,
+        "variables": {
+          "root": {
+            "ref": 1
+          },
+          "value": 4,
+          "current": {
+            "ref": 4
+          },
+          "parent": {
+            "ref": 2
+          }
+        }
+      },
+      {
+        "event": "line",
+        "line": 13
+      },
+      {
+        "event": "line",
+        "line": 14,
+        "variables": {
+          "root": {
+            "ref": 1
+          },
+          "value": 4,
+          "current": {
+            "ref": 4
+          },
+          "parent": {
+            "ref": 4
+          }
+        }
+      },
+      {
+        "event": "exception",
+        "line": 14
+      }
+    ],
+    "error": {
+      "type": "ExecutionError",
+      "message": "An exception occurred during code execution."
+    }
+  }
+}

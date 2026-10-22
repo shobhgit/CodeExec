@@ -1,0 +1,17 @@
+{
+  "name": "java-bst-insert-search",
+  "expectedStdout": "true 4\n",
+  "request": {
+    "code": "public class Main {\n    static class Node { int value; Node left, right; Node(int value) { this.value = value; } }\n    static Node insert(Node root, int value) {\n        if (root == null) return new Node(value);\n        if (value < root.value) root.left = insert(root.left, value);\n        else root.right = insert(root.right, value);\n        return root;\n    }\n    static boolean contains(Node root, int value) {\n        while (root != null) {\n            if (root.value == value) return true;\n            root = value < root.value ? root.left : root.right;\n        }\n        return false;\n    }\n    public static void main(String[] args) {\n        Node root = null;\n        for (int value : new int[]{8, 3, 10, 6, 4}) root = insert(root, value);\n        System.out.println(contains(root, 4) + \" \" + root.left.left.value);\n    }\n}",
+    "language": "java"
+  },
+  "response": {
+    "status": "error",
+    "stdout": null,
+    "trace": null,
+    "error": {
+      "message": "Docker execution failed: Code execution timed out after 5 seconds",
+      "type": "RuntimeException"
+    }
+  }
+}

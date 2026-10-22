@@ -1,0 +1,162 @@
+{
+  "name": "java-binary-tree",
+  "request": {
+    "language": "java",
+    "code": "public class Main {\n    static class Node {\n        int value;\n        Node left;\n        Node right;\n        Node(int value) { this.value = value; }\n    }\n    public static void main(String[] args) {\n        Node root = new Node(2);\n        root.left = new Node(1);\n        root.right = new Node(3);\n        System.out.println(root.left.value + root.value + root.right.value);\n    }\n}"
+  },
+  "response": {
+    "status": "success",
+    "stdout": "6\n",
+    "trace": [
+      {
+        "event": "line",
+        "line": 10,
+        "function": "main",
+        "variables": {
+          "root": {
+            "ref": 56
+          }
+        },
+        "heap": [
+          {
+            "object": "56",
+            "type": "object",
+            "class": "Main$Node",
+            "fields": {
+              "value": 2,
+              "left": null,
+              "right": null
+            }
+          }
+        ]
+      },
+      {
+        "event": "line",
+        "line": 11,
+        "function": "main",
+        "variables": {
+          "root": {
+            "ref": 56
+          }
+        },
+        "heap": [
+          {
+            "object": "57",
+            "type": "object",
+            "class": "Main$Node",
+            "fields": {
+              "value": 1,
+              "left": null,
+              "right": null
+            }
+          },
+          {
+            "object": "56",
+            "type": "object",
+            "class": "Main$Node",
+            "fields": {
+              "value": 2,
+              "left": {
+                "ref": 57
+              },
+              "right": null
+            }
+          }
+        ]
+      },
+      {
+        "event": "line",
+        "line": 12,
+        "function": "main",
+        "variables": {
+          "root": {
+            "ref": 56
+          }
+        },
+        "heap": [
+          {
+            "object": "57",
+            "type": "object",
+            "class": "Main$Node",
+            "fields": {
+              "value": 1,
+              "left": null,
+              "right": null
+            }
+          },
+          {
+            "object": "58",
+            "type": "object",
+            "class": "Main$Node",
+            "fields": {
+              "value": 3,
+              "left": null,
+              "right": null
+            }
+          },
+          {
+            "object": "56",
+            "type": "object",
+            "class": "Main$Node",
+            "fields": {
+              "value": 2,
+              "left": {
+                "ref": 57
+              },
+              "right": {
+                "ref": 58
+              }
+            }
+          }
+        ]
+      },
+      {
+        "event": "line",
+        "line": 13,
+        "function": "main",
+        "variables": {
+          "root": {
+            "ref": 56
+          }
+        },
+        "heap": [
+          {
+            "object": "57",
+            "type": "object",
+            "class": "Main$Node",
+            "fields": {
+              "value": 1,
+              "left": null,
+              "right": null
+            }
+          },
+          {
+            "object": "58",
+            "type": "object",
+            "class": "Main$Node",
+            "fields": {
+              "value": 3,
+              "left": null,
+              "right": null
+            }
+          },
+          {
+            "object": "56",
+            "type": "object",
+            "class": "Main$Node",
+            "fields": {
+              "value": 2,
+              "left": {
+                "ref": 57
+              },
+              "right": {
+                "ref": 58
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "error": null
+  }
+}

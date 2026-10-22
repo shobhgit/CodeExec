@@ -1,0 +1,180 @@
+{
+  "name": "java-jdk-linked-list",
+  "expectedStdout": "1 2 2\n",
+  "request": {
+    "code": "import java.util.LinkedList;\npublic class Main {\n    public static void main(String[] args) {\n        LinkedList<Integer> values = new LinkedList<>();\n        values.add(1); values.add(3); values.add(1, 2); values.removeLast();\n        System.out.println(values.getFirst() + \" \" + values.getLast() + \" \" + values.size());\n    }\n}",
+    "language": "java"
+  },
+  "response": {
+    "status": "success",
+    "stdout": "1 2 2\n",
+    "trace": [
+      {
+        "event": "line",
+        "line": 5,
+        "function": "main",
+        "variables": {
+          "values": {
+            "ref": 57
+          }
+        },
+        "heap": [
+          {
+            "object": "57",
+            "type": "object",
+            "class": "java.util.LinkedList",
+            "fields": {
+              "size": 0,
+              "first": null,
+              "last": null,
+              "modCount": 0
+            }
+          }
+        ]
+      },
+      {
+        "event": "line",
+        "line": 6,
+        "function": "main",
+        "variables": {
+          "values": {
+            "ref": 57
+          }
+        },
+        "heap": [
+          {
+            "object": "70",
+            "type": "object",
+            "class": "java.lang.Integer",
+            "fields": {
+              "value": 1
+            }
+          },
+          {
+            "object": "77",
+            "type": "object",
+            "class": "java.lang.Integer",
+            "fields": {
+              "value": 2
+            }
+          },
+          {
+            "object": "76",
+            "type": "object",
+            "class": "java.util.LinkedList$Node",
+            "fields": {
+              "item": {
+                "ref": 77
+              },
+              "next": null,
+              "prev": {
+                "ref": 69
+              }
+            }
+          },
+          {
+            "object": "69",
+            "type": "object",
+            "class": "java.util.LinkedList$Node",
+            "fields": {
+              "item": {
+                "ref": 70
+              },
+              "next": {
+                "ref": 76
+              },
+              "prev": null
+            }
+          },
+          {
+            "object": "57",
+            "type": "object",
+            "class": "java.util.LinkedList",
+            "fields": {
+              "size": 2,
+              "first": {
+                "ref": 69
+              },
+              "last": {
+                "ref": 76
+              },
+              "modCount": 4
+            }
+          }
+        ]
+      },
+      {
+        "event": "line",
+        "line": 7,
+        "function": "main",
+        "variables": {
+          "values": {
+            "ref": 57
+          }
+        },
+        "heap": [
+          {
+            "object": "70",
+            "type": "object",
+            "class": "java.lang.Integer",
+            "fields": {
+              "value": 1
+            }
+          },
+          {
+            "object": "77",
+            "type": "object",
+            "class": "java.lang.Integer",
+            "fields": {
+              "value": 2
+            }
+          },
+          {
+            "object": "76",
+            "type": "object",
+            "class": "java.util.LinkedList$Node",
+            "fields": {
+              "item": {
+                "ref": 77
+              },
+              "next": null,
+              "prev": {
+                "ref": 69
+              }
+            }
+          },
+          {
+            "object": "69",
+            "type": "object",
+            "class": "java.util.LinkedList$Node",
+            "fields": {
+              "item": {
+                "ref": 70
+              },
+              "next": {
+                "ref": 76
+              },
+              "prev": null
+            }
+          },
+          {
+            "object": "57",
+            "type": "object",
+            "class": "java.util.LinkedList",
+            "fields": {
+              "size": 2,
+              "first": {
+                "ref": 69
+              },
+              "last": {
+                "ref": 76
+              },
+              "modCount": 4
+            }
+          }
+        ]
+      }
+    ],
+    "error": null
+  }
+}

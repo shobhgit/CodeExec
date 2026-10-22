@@ -1,0 +1,138 @@
+{
+  "name": "java-linked-objects",
+  "request": {
+    "code": "public class Main {\n    static class Node {\n        int value;\n        Node next;\n        Node(int value) { this.value = value; }\n    }\n    public static void main(String[] args) {\n        Node first = new Node(1);\n        Node second = new Node(2);\n        first.next = second;\n        System.out.println(first.next.value);\n    }\n}",
+    "language": "java"
+  },
+  "response": {
+    "status": "success",
+    "stdout": "2\n",
+    "trace": [
+      {
+        "event": "line",
+        "line": 9,
+        "function": "main",
+        "variables": {
+          "first": {
+            "ref": 56
+          }
+        },
+        "heap": [
+          {
+            "object": "56",
+            "type": "object",
+            "class": "Main$Node",
+            "fields": {
+              "value": 1,
+              "next": null
+            }
+          }
+        ]
+      },
+      {
+        "event": "line",
+        "line": 10,
+        "function": "main",
+        "variables": {
+          "first": {
+            "ref": 56
+          },
+          "second": {
+            "ref": 57
+          }
+        },
+        "heap": [
+          {
+            "object": "56",
+            "type": "object",
+            "class": "Main$Node",
+            "fields": {
+              "value": 1,
+              "next": null
+            }
+          },
+          {
+            "object": "57",
+            "type": "object",
+            "class": "Main$Node",
+            "fields": {
+              "value": 2,
+              "next": null
+            }
+          }
+        ]
+      },
+      {
+        "event": "line",
+        "line": 11,
+        "function": "main",
+        "variables": {
+          "first": {
+            "ref": 56
+          },
+          "second": {
+            "ref": 57
+          }
+        },
+        "heap": [
+          {
+            "object": "57",
+            "type": "object",
+            "class": "Main$Node",
+            "fields": {
+              "value": 2,
+              "next": null
+            }
+          },
+          {
+            "object": "56",
+            "type": "object",
+            "class": "Main$Node",
+            "fields": {
+              "value": 1,
+              "next": {
+                "ref": 57
+              }
+            }
+          }
+        ]
+      },
+      {
+        "event": "line",
+        "line": 12,
+        "function": "main",
+        "variables": {
+          "first": {
+            "ref": 56
+          },
+          "second": {
+            "ref": 57
+          }
+        },
+        "heap": [
+          {
+            "object": "57",
+            "type": "object",
+            "class": "Main$Node",
+            "fields": {
+              "value": 2,
+              "next": null
+            }
+          },
+          {
+            "object": "56",
+            "type": "object",
+            "class": "Main$Node",
+            "fields": {
+              "value": 1,
+              "next": {
+                "ref": 57
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "error": null
+  }
+}

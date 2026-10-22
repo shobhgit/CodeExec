@@ -1,0 +1,217 @@
+{
+  "name": "java-arraylist",
+  "request": {
+    "code": "import java.util.ArrayList;\npublic class Main {\n    public static void main(String[] args) {\n        ArrayList<Integer> values = new ArrayList<>();\n        values.add(4);\n        values.add(7);\n        values.set(0, 9);\n        System.out.println(values.get(0) + values.get(1));\n    }\n}",
+    "language": "java"
+  },
+  "response": {
+    "status": "success",
+    "stdout": "16\n",
+    "trace": [
+      {
+        "event": "line",
+        "line": 5,
+        "function": "main",
+        "variables": {
+          "values": {
+            "ref": 55
+          }
+        },
+        "heap": [
+          {
+            "object": "66",
+            "type": "array",
+            "items": []
+          },
+          {
+            "object": "55",
+            "type": "object",
+            "class": "java.util.ArrayList",
+            "fields": {
+              "elementData": {
+                "ref": 66
+              },
+              "size": 0,
+              "modCount": 0
+            }
+          }
+        ]
+      },
+      {
+        "event": "line",
+        "line": 6,
+        "function": "main",
+        "variables": {
+          "values": {
+            "ref": 55
+          }
+        },
+        "heap": [
+          {
+            "object": "67",
+            "type": "array",
+            "items": [
+              {
+                "ref": 68
+              },
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ]
+          },
+          {
+            "object": "55",
+            "type": "object",
+            "class": "java.util.ArrayList",
+            "fields": {
+              "elementData": {
+                "ref": 67
+              },
+              "size": 1,
+              "modCount": 1
+            }
+          }
+        ]
+      },
+      {
+        "event": "line",
+        "line": 7,
+        "function": "main",
+        "variables": {
+          "values": {
+            "ref": 55
+          }
+        },
+        "heap": [
+          {
+            "object": "67",
+            "type": "array",
+            "items": [
+              {
+                "ref": 68
+              },
+              {
+                "ref": 69
+              },
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ]
+          },
+          {
+            "object": "55",
+            "type": "object",
+            "class": "java.util.ArrayList",
+            "fields": {
+              "elementData": {
+                "ref": 67
+              },
+              "size": 2,
+              "modCount": 2
+            }
+          }
+        ]
+      },
+      {
+        "event": "line",
+        "line": 8,
+        "function": "main",
+        "variables": {
+          "values": {
+            "ref": 55
+          }
+        },
+        "heap": [
+          {
+            "object": "67",
+            "type": "array",
+            "items": [
+              {
+                "ref": 70
+              },
+              {
+                "ref": 69
+              },
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ]
+          },
+          {
+            "object": "55",
+            "type": "object",
+            "class": "java.util.ArrayList",
+            "fields": {
+              "elementData": {
+                "ref": 67
+              },
+              "size": 2,
+              "modCount": 2
+            }
+          }
+        ]
+      },
+      {
+        "event": "line",
+        "line": 9,
+        "function": "main",
+        "variables": {
+          "values": {
+            "ref": 55
+          }
+        },
+        "heap": [
+          {
+            "object": "67",
+            "type": "array",
+            "items": [
+              {
+                "ref": 70
+              },
+              {
+                "ref": 69
+              },
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ]
+          },
+          {
+            "object": "55",
+            "type": "object",
+            "class": "java.util.ArrayList",
+            "fields": {
+              "elementData": {
+                "ref": 67
+              },
+              "size": 2,
+              "modCount": 2
+            }
+          }
+        ]
+      }
+    ],
+    "error": null
+  }
+}

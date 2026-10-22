@@ -1,0 +1,128 @@
+{
+  "name": "java-recursion",
+  "request": {
+    "code": "public class Main {\n    static int factorial(int n) {\n        if (n <= 1) return 1;\n        return n * factorial(n - 1);\n    }\n    public static void main(String[] args) {\n        System.out.println(factorial(5));\n    }\n}",
+    "language": "java"
+  },
+  "response": {
+    "status": "success",
+    "stdout": "120\n",
+    "trace": [
+      {
+        "event": "line",
+        "line": 3,
+        "function": "factorial",
+        "variables": {
+          "n": 5
+        }
+      },
+      {
+        "event": "line",
+        "line": 4,
+        "function": "factorial",
+        "variables": {
+          "n": 5
+        }
+      },
+      {
+        "event": "line",
+        "line": 3,
+        "function": "factorial",
+        "variables": {
+          "n": 4
+        }
+      },
+      {
+        "event": "line",
+        "line": 4,
+        "function": "factorial",
+        "variables": {
+          "n": 4
+        }
+      },
+      {
+        "event": "line",
+        "line": 3,
+        "function": "factorial",
+        "variables": {
+          "n": 3
+        }
+      },
+      {
+        "event": "line",
+        "line": 4,
+        "function": "factorial",
+        "variables": {
+          "n": 3
+        }
+      },
+      {
+        "event": "line",
+        "line": 3,
+        "function": "factorial",
+        "variables": {
+          "n": 2
+        }
+      },
+      {
+        "event": "line",
+        "line": 4,
+        "function": "factorial",
+        "variables": {
+          "n": 2
+        }
+      },
+      {
+        "event": "line",
+        "line": 3,
+        "function": "factorial",
+        "variables": {
+          "n": 1
+        }
+      },
+      {
+        "event": "line",
+        "line": 4,
+        "function": "factorial",
+        "variables": {
+          "n": 2
+        }
+      },
+      {
+        "event": "line",
+        "line": 4,
+        "function": "factorial",
+        "variables": {
+          "n": 3
+        }
+      },
+      {
+        "event": "line",
+        "line": 4,
+        "function": "factorial",
+        "variables": {
+          "n": 4
+        }
+      },
+      {
+        "event": "line",
+        "line": 4,
+        "function": "factorial",
+        "variables": {
+          "n": 5
+        }
+      },
+      {
+        "event": "line",
+        "line": 7,
+        "function": "main"
+      },
+      {
+        "event": "line",
+        "line": 8,
+        "function": "main"
+      }
+    ],
+    "error": null
+  }
+}

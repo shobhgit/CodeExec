@@ -1,0 +1,75 @@
+{
+  "name": "python-list-mutation",
+  "request": {
+    "code": "nums = [1, 2, 3]\nnums.append(4)\nnums[0] = 10\nprint(nums)",
+    "language": "python"
+  },
+  "response": {
+    "status": "success",
+    "stdout": "[10, 2, 3, 4]\n",
+    "trace": [
+      {
+        "event": "line",
+        "line": 1
+      },
+      {
+        "event": "line",
+        "line": 2,
+        "variables": {
+          "nums": {
+            "ref": 1
+          }
+        },
+        "heap": [
+          {
+            "object": "1",
+            "type": "list",
+            "items": [
+              1,
+              2,
+              3
+            ]
+          }
+        ]
+      },
+      {
+        "event": "line",
+        "line": 3,
+        "heap": [
+          {
+            "object": "1",
+            "type": "list",
+            "items": [
+              1,
+              2,
+              3,
+              4
+            ]
+          }
+        ]
+      },
+      {
+        "event": "line",
+        "line": 4,
+        "heap": [
+          {
+            "object": "1",
+            "type": "list",
+            "items": [
+              10,
+              2,
+              3,
+              4
+            ]
+          }
+        ]
+      },
+      {
+        "event": "return",
+        "line": 4,
+        "stdout": "[10, 2, 3, 4]\n"
+      }
+    ],
+    "error": null
+  }
+}

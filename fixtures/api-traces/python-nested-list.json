@@ -1,0 +1,76 @@
+{
+  "name": "python-nested-list",
+  "request": {
+    "code": "grid = [[1, 2], [3, 4]]\ngrid[0][1] = 9\nprint(grid)",
+    "language": "python"
+  },
+  "response": {
+    "status": "success",
+    "stdout": "[[1, 9], [3, 4]]\n",
+    "trace": [
+      {
+        "event": "line",
+        "line": 1
+      },
+      {
+        "event": "line",
+        "line": 2,
+        "variables": {
+          "grid": {
+            "ref": 1
+          }
+        },
+        "heap": [
+          {
+            "object": "1",
+            "type": "list",
+            "items": [
+              {
+                "ref": 2
+              },
+              {
+                "ref": 3
+              }
+            ]
+          },
+          {
+            "object": "2",
+            "type": "list",
+            "items": [
+              1,
+              2
+            ]
+          },
+          {
+            "object": "3",
+            "type": "list",
+            "items": [
+              3,
+              4
+            ]
+          }
+        ]
+      },
+      {
+        "event": "line",
+        "line": 3,
+        "heap": [
+          {
+            "object": "2",
+            "type": "list",
+            "items": [
+              1,
+              9
+            ]
+          }
+        ]
+      },
+      {
+        "event": "return",
+        "line": 3,
+        "stdout": "[[1, 9], [3, 4]]\n"
+      }
+    ],
+    "error": null
+  }
+}

@@ -1,0 +1,221 @@
+{
+  "name": "java-stack-class",
+  "expectedStdout": "b a\n",
+  "request": {
+    "code": "import java.util.Stack;\npublic class Main {\n    public static void main(String[] args) {\n        Stack<String> values = new Stack<>();\n        values.push(\"a\"); values.push(\"b\");\n        String top = values.pop();\n        System.out.println(top + \" \" + values.peek());\n    }\n}",
+    "language": "java"
+  },
+  "response": {
+    "status": "success",
+    "stdout": "b a\n",
+    "trace": [
+      {
+        "event": "line",
+        "line": 5,
+        "function": "main",
+        "variables": {
+          "values": {
+            "ref": 57
+          }
+        },
+        "heap": [
+          {
+            "object": "67",
+            "type": "array",
+            "items": [
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ]
+          },
+          {
+            "object": "57",
+            "type": "object",
+            "class": "java.util.Stack",
+            "fields": {
+              "elementData": {
+                "ref": 67
+              },
+              "elementCount": 0,
+              "capacityIncrement": 0,
+              "modCount": 0
+            }
+          }
+        ]
+      },
+      {
+        "event": "line",
+        "line": 6,
+        "function": "main",
+        "variables": {
+          "values": {
+            "ref": 57
+          }
+        },
+        "heap": [
+          {
+            "object": "67",
+            "type": "array",
+            "items": [
+              "a",
+              "b",
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ]
+          },
+          {
+            "object": "57",
+            "type": "object",
+            "class": "java.util.Stack",
+            "fields": {
+              "elementData": {
+                "ref": 67
+              },
+              "elementCount": 2,
+              "capacityIncrement": 0,
+              "modCount": 2
+            }
+          }
+        ]
+      },
+      {
+        "event": "line",
+        "line": 7,
+        "function": "main",
+        "variables": {
+          "values": {
+            "ref": 57
+          },
+          "top": "b"
+        },
+        "heap": [
+          {
+            "object": "67",
+            "type": "array",
+            "items": [
+              "a",
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ]
+          },
+          {
+            "object": "57",
+            "type": "object",
+            "class": "java.util.Stack",
+            "fields": {
+              "elementData": {
+                "ref": 67
+              },
+              "elementCount": 1,
+              "capacityIncrement": 0,
+              "modCount": 3
+            }
+          },
+          {
+            "object": "75",
+            "type": "array",
+            "items": [
+              98
+            ]
+          },
+          {
+            "object": "69",
+            "type": "object",
+            "class": "java.lang.String",
+            "fields": {
+              "value": {
+                "ref": 75
+              },
+              "coder": 0,
+              "hash": 0,
+              "hashIsZero": false
+            }
+          }
+        ]
+      },
+      {
+        "event": "line",
+        "line": 8,
+        "function": "main",
+        "variables": {
+          "values": {
+            "ref": 57
+          },
+          "top": "b"
+        },
+        "heap": [
+          {
+            "object": "67",
+            "type": "array",
+            "items": [
+              "a",
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ]
+          },
+          {
+            "object": "57",
+            "type": "object",
+            "class": "java.util.Stack",
+            "fields": {
+              "elementData": {
+                "ref": 67
+              },
+              "elementCount": 1,
+              "capacityIncrement": 0,
+              "modCount": 3
+            }
+          },
+          {
+            "object": "75",
+            "type": "array",
+            "items": [
+              98
+            ]
+          },
+          {
+            "object": "69",
+            "type": "object",
+            "class": "java.lang.String",
+            "fields": {
+              "value": {
+                "ref": 75
+              },
+              "coder": 0,
+              "hash": 0,
+              "hashIsZero": false
+            }
+          }
+        ]
+      }
+    ],
+    "error": null
+  }
+}

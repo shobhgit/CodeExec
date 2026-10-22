@@ -1,0 +1,78 @@
+{
+  "name": "java-union-find-minimal",
+  "expectedStdout": "true\n",
+  "request": {
+    "language": "java",
+    "code": "public class Main {\n    public static void main(String[] args) {\n        int[] parent = {0, 1, 2}; parent[1] = 0; parent[2] = 1;\n        while (parent[2] != parent[parent[2]]) parent[2] = parent[parent[2]];\n        System.out.println(parent[0] == parent[parent[2]]);\n    }\n}"
+  },
+  "response": {
+    "status": "success",
+    "stdout": "true\n",
+    "trace": [
+      {
+        "event": "line",
+        "line": 4,
+        "function": "main",
+        "variables": {
+          "parent": {
+            "ref": 55
+          }
+        },
+        "heap": [
+          {
+            "object": "55",
+            "type": "array",
+            "items": [
+              0,
+              0,
+              1
+            ]
+          }
+        ]
+      },
+      {
+        "event": "line",
+        "line": 5,
+        "function": "main",
+        "variables": {
+          "parent": {
+            "ref": 55
+          }
+        },
+        "heap": [
+          {
+            "object": "55",
+            "type": "array",
+            "items": [
+              0,
+              0,
+              0
+            ]
+          }
+        ]
+      },
+      {
+        "event": "line",
+        "line": 6,
+        "function": "main",
+        "variables": {
+          "parent": {
+            "ref": 55
+          }
+        },
+        "heap": [
+          {
+            "object": "55",
+            "type": "array",
+            "items": [
+              0,
+              0,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "error": null
+  }
+}

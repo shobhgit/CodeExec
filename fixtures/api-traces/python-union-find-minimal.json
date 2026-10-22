@@ -1,0 +1,97 @@
+{
+  "name": "python-union-find-minimal",
+  "expectedStdout": "True\n",
+  "request": {
+    "language": "python",
+    "code": "parent = [0, 1, 2]\nparent[1] = 0\nparent[2] = 1\nwhile parent[2] != parent[parent[2]]:\n    parent[2] = parent[parent[2]]\nprint(parent[0] == parent[parent[2]])"
+  },
+  "response": {
+    "status": "success",
+    "stdout": "True\n",
+    "trace": [
+      {
+        "event": "line",
+        "line": 1
+      },
+      {
+        "event": "line",
+        "line": 2,
+        "variables": {
+          "parent": {
+            "ref": 1
+          }
+        },
+        "heap": [
+          {
+            "object": "1",
+            "type": "list",
+            "items": [
+              0,
+              1,
+              2
+            ]
+          }
+        ]
+      },
+      {
+        "event": "line",
+        "line": 3,
+        "heap": [
+          {
+            "object": "1",
+            "type": "list",
+            "items": [
+              0,
+              0,
+              2
+            ]
+          }
+        ]
+      },
+      {
+        "event": "line",
+        "line": 4,
+        "heap": [
+          {
+            "object": "1",
+            "type": "list",
+            "items": [
+              0,
+              0,
+              1
+            ]
+          }
+        ]
+      },
+      {
+        "event": "line",
+        "line": 5
+      },
+      {
+        "event": "line",
+        "line": 4,
+        "heap": [
+          {
+            "object": "1",
+            "type": "list",
+            "items": [
+              0,
+              0,
+              0
+            ]
+          }
+        ]
+      },
+      {
+        "event": "line",
+        "line": 6
+      },
+      {
+        "event": "return",
+        "line": 6,
+        "stdout": "True\n"
+      }
+    ],
+    "error": null
+  }
+}

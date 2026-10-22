@@ -1,0 +1,17 @@
+{
+  "name": "java-trie-prefix",
+  "expectedStdout": "true true\n",
+  "request": {
+    "code": "import java.util.*;\npublic class Main {\n    static class Trie { Map<Character, Trie> children = new HashMap<>(); boolean end; }\n    public static void main(String[] args) {\n        Trie root = new Trie();\n        for (String word : new String[]{\"cat\", \"car\"}) {\n            Trie node = root;\n            for (char ch : word.toCharArray()) node = node.children.computeIfAbsent(ch, k -> new Trie());\n            node.end = true;\n        }\n        Trie node = root;\n        for (char ch : \"cat\".toCharArray()) node = node.children.get(ch);\n        System.out.println(node.end + \" \" + root.children.get('c').children.containsKey('r'));\n    }\n}",
+    "language": "java"
+  },
+  "response": {
+    "status": "error",
+    "stdout": null,
+    "trace": null,
+    "error": {
+      "message": "Docker execution failed: Code execution timed out after 5 seconds",
+      "type": "RuntimeException"
+    }
+  }
+}

@@ -1,0 +1,137 @@
+{
+  "name": "python-bst-structure-minimal",
+  "expectedStdout": "True\n",
+  "request": {
+    "code": "root = {\"v\": 8, \"l\": {\"v\": 3, \"l\": None, \"r\": None}, \"r\": {\"v\": 10, \"l\": None, \"r\": None}}\nroot[\"l\"][\"r\"] = {\"v\": 4, \"l\": None, \"r\": None}\nprint(root[\"l\"][\"r\"][\"v\"] < root[\"v\"])",
+    "language": "python"
+  },
+  "response": {
+    "status": "success",
+    "stdout": "True\n",
+    "trace": [
+      {
+        "event": "line",
+        "line": 1
+      },
+      {
+        "event": "line",
+        "line": 2,
+        "variables": {
+          "root": {
+            "ref": 1
+          }
+        },
+        "heap": [
+          {
+            "object": "1",
+            "type": "dict",
+            "entries": [
+              {
+                "key": "v",
+                "value": 8
+              },
+              {
+                "key": "l",
+                "value": {
+                  "ref": 2
+                }
+              },
+              {
+                "key": "r",
+                "value": {
+                  "ref": 3
+                }
+              }
+            ]
+          },
+          {
+            "object": "2",
+            "type": "dict",
+            "entries": [
+              {
+                "key": "v",
+                "value": 3
+              },
+              {
+                "key": "l",
+                "value": null
+              },
+              {
+                "key": "r",
+                "value": null
+              }
+            ]
+          },
+          {
+            "object": "3",
+            "type": "dict",
+            "entries": [
+              {
+                "key": "v",
+                "value": 10
+              },
+              {
+                "key": "l",
+                "value": null
+              },
+              {
+                "key": "r",
+                "value": null
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "event": "line",
+        "line": 3,
+        "heap": [
+          {
+            "object": "2",
+            "type": "dict",
+            "entries": [
+              {
+                "key": "v",
+                "value": 3
+              },
+              {
+                "key": "l",
+                "value": null
+              },
+              {
+                "key": "r",
+                "value": {
+                  "ref": 4
+                }
+              }
+            ]
+          },
+          {
+            "object": "4",
+            "type": "dict",
+            "entries": [
+              {
+                "key": "v",
+                "value": 4
+              },
+              {
+                "key": "l",
+                "value": null
+              },
+              {
+                "key": "r",
+                "value": null
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "event": "return",
+        "line": 3,
+        "stdout": "True\n"
+      }
+    ],
+    "error": null
+  }
+}

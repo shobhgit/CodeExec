@@ -1,0 +1,159 @@
+{
+  "name": "python-singly-linked-insert-delete",
+  "expectedStdout": "1 3\n",
+  "request": {
+    "code": "class Node: pass\nhead = Node()\nhead.value = 1\nhead.next = Node()\nhead.next.value = 3\nmiddle = Node()\nmiddle.value = 2\nmiddle.next = head.next\nhead.next = middle\nhead.next = head.next.next\nprint(head.value, head.next.value)",
+    "language": "python"
+  },
+  "response": {
+    "status": "success",
+    "stdout": "1 3\n",
+    "trace": [
+      {
+        "event": "line",
+        "line": 1
+      },
+      {
+        "event": "line",
+        "line": 2
+      },
+      {
+        "event": "line",
+        "line": 3,
+        "variables": {
+          "head": {
+            "ref": 1
+          }
+        }
+      },
+      {
+        "event": "line",
+        "line": 4,
+        "heap": [
+          {
+            "object": "1",
+            "type": "object",
+            "class": "Node",
+            "changes": {
+              "value": 1
+            }
+          }
+        ]
+      },
+      {
+        "event": "line",
+        "line": 5,
+        "heap": [
+          {
+            "object": "1",
+            "type": "object",
+            "class": "Node",
+            "changes": {
+              "next": {
+                "ref": 2
+              },
+              "value": 1
+            }
+          }
+        ]
+      },
+      {
+        "event": "line",
+        "line": 6,
+        "heap": [
+          {
+            "object": "2",
+            "type": "object",
+            "class": "Node",
+            "changes": {
+              "value": 3
+            }
+          }
+        ]
+      },
+      {
+        "event": "line",
+        "line": 7,
+        "variables": {
+          "head": {
+            "ref": 1
+          },
+          "middle": {
+            "ref": 3
+          }
+        }
+      },
+      {
+        "event": "line",
+        "line": 8,
+        "heap": [
+          {
+            "object": "3",
+            "type": "object",
+            "class": "Node",
+            "changes": {
+              "value": 2
+            }
+          }
+        ]
+      },
+      {
+        "event": "line",
+        "line": 9,
+        "heap": [
+          {
+            "object": "3",
+            "type": "object",
+            "class": "Node",
+            "changes": {
+              "next": {
+                "ref": 2
+              },
+              "value": 2
+            }
+          }
+        ]
+      },
+      {
+        "event": "line",
+        "line": 10,
+        "heap": [
+          {
+            "object": "1",
+            "type": "object",
+            "class": "Node",
+            "changes": {
+              "next": {
+                "ref": 3
+              },
+              "value": 1
+            }
+          }
+        ]
+      },
+      {
+        "event": "line",
+        "line": 11,
+        "heap": [
+          {
+            "object": "1",
+            "type": "object",
+            "class": "Node",
+            "changes": {
+              "next": {
+                "ref": 2
+              },
+              "value": 1
+            }
+          }
+        ]
+      },
+      {
+        "event": "return",
+        "line": 11,
+        "stdout": "1 3\n"
+      }
+    ],
+    "error": null
+  }
+}

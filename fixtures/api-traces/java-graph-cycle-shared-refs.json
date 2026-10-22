@@ -1,0 +1,17 @@
+{
+  "name": "java-graph-cycle-shared-refs",
+  "expectedStdout": "3 true true\n",
+  "request": {
+    "code": "import java.util.*;\npublic class Main {\n    static class Node { String name; List<Node> neighbors = new ArrayList<>(); Node(String name) { this.name = name; } }\n    public static void main(String[] args) {\n        Node a = new Node(\"A\"), b = new Node(\"B\"), c = new Node(\"C\");\n        a.neighbors.add(b); a.neighbors.add(c); b.neighbors.add(c); c.neighbors.add(a);\n        Set<String> seen = new HashSet<>();\n        Queue<Node> queue = new ArrayDeque<>(); queue.add(a);\n        while (!queue.isEmpty()) { Node n = queue.remove(); if (seen.add(n.name)) queue.addAll(n.neighbors); }\n        System.out.println(seen.size() + \" \" + (a.neighbors.get(1) == c) + \" \" + (c.neighbors.get(0) == a));\n    }\n}",
+    "language": "java"
+  },
+  "response": {
+    "status": "error",
+    "stdout": null,
+    "trace": null,
+    "error": {
+      "message": "Docker execution failed: Code execution timed out after 5 seconds",
+      "type": "RuntimeException"
+    }
+  }
+}

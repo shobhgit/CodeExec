@@ -1,0 +1,244 @@
+{
+  "name": "java-hashset",
+  "request": {
+    "code": "import java.util.HashSet;\npublic class Main {\n    public static void main(String[] args) {\n        HashSet<Integer> values = new HashSet<>();\n        values.add(2);\n        values.add(5);\n        System.out.println(values.size());\n    }\n}",
+    "language": "java"
+  },
+  "response": {
+    "status": "success",
+    "stdout": "2\n",
+    "trace": [
+      {
+        "event": "line",
+        "line": 5,
+        "function": "main",
+        "variables": {
+          "values": {
+            "ref": 55
+          }
+        },
+        "heap": [
+          {
+            "object": "64",
+            "type": "object",
+            "class": "java.util.HashMap",
+            "fields": {
+              "table": null,
+              "entrySet": null,
+              "size": 0,
+              "modCount": 0,
+              "threshold": 0,
+              "loadFactor": 0.75,
+              "keySet": null,
+              "values": null
+            }
+          },
+          {
+            "object": "55",
+            "type": "object",
+            "class": "java.util.HashSet",
+            "fields": {
+              "map": {
+                "ref": 64
+              }
+            }
+          }
+        ]
+      },
+      {
+        "event": "line",
+        "line": 6,
+        "function": "main",
+        "variables": {
+          "values": {
+            "ref": 55
+          }
+        },
+        "heap": [
+          {
+            "object": "68",
+            "type": "array",
+            "items": [
+              null,
+              null,
+              {
+                "ref": 69
+              },
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ]
+          },
+          {
+            "object": "64",
+            "type": "object",
+            "class": "java.util.HashMap",
+            "fields": {
+              "table": {
+                "ref": 68
+              },
+              "entrySet": null,
+              "size": 1,
+              "modCount": 1,
+              "threshold": 12,
+              "loadFactor": 0.75,
+              "keySet": null,
+              "values": null
+            }
+          },
+          {
+            "object": "55",
+            "type": "object",
+            "class": "java.util.HashSet",
+            "fields": {
+              "map": {
+                "ref": 64
+              }
+            }
+          }
+        ]
+      },
+      {
+        "event": "line",
+        "line": 7,
+        "function": "main",
+        "variables": {
+          "values": {
+            "ref": 55
+          }
+        },
+        "heap": [
+          {
+            "object": "68",
+            "type": "array",
+            "items": [
+              null,
+              null,
+              {
+                "ref": 69
+              },
+              null,
+              null,
+              {
+                "ref": 70
+              },
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ]
+          },
+          {
+            "object": "64",
+            "type": "object",
+            "class": "java.util.HashMap",
+            "fields": {
+              "table": {
+                "ref": 68
+              },
+              "entrySet": null,
+              "size": 2,
+              "modCount": 2,
+              "threshold": 12,
+              "loadFactor": 0.75,
+              "keySet": null,
+              "values": null
+            }
+          },
+          {
+            "object": "55",
+            "type": "object",
+            "class": "java.util.HashSet",
+            "fields": {
+              "map": {
+                "ref": 64
+              }
+            }
+          }
+        ]
+      },
+      {
+        "event": "line",
+        "line": 8,
+        "function": "main",
+        "variables": {
+          "values": {
+            "ref": 55
+          }
+        },
+        "heap": [
+          {
+            "object": "68",
+            "type": "array",
+            "items": [
+              null,
+              null,
+              {
+                "ref": 69
+              },
+              null,
+              null,
+              {
+                "ref": 70
+              },
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ]
+          },
+          {
+            "object": "64",
+            "type": "object",
+            "class": "java.util.HashMap",
+            "fields": {
+              "table": {
+                "ref": 68
+              },
+              "entrySet": null,
+              "size": 2,
+              "modCount": 2,
+              "threshold": 12,
+              "loadFactor": 0.75,
+              "keySet": null,
+              "values": null
+            }
+          },
+          {
+            "object": "55",
+            "type": "object",
+            "class": "java.util.HashSet",
+            "fields": {
+              "map": {
+                "ref": 64
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "error": null
+  }
+}

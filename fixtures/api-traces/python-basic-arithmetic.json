@@ -1,0 +1,38 @@
+{
+  "name": "python-basic-arithmetic",
+  "request": {
+    "code": "x = 10\ny = 20\nprint(x + y)",
+    "language": "python"
+  },
+  "response": {
+    "status": "success",
+    "stdout": "30\n",
+    "trace": [
+      {
+        "event": "line",
+        "line": 1
+      },
+      {
+        "event": "line",
+        "line": 2,
+        "variables": {
+          "x": 10
+        }
+      },
+      {
+        "event": "line",
+        "line": 3,
+        "variables": {
+          "x": 10,
+          "y": 20
+        }
+      },
+      {
+        "event": "return",
+        "line": 3,
+        "stdout": "30\n"
+      }
+    ],
+    "error": null
+  }
+}

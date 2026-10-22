@@ -1,0 +1,17 @@
+{
+  "name": "python-bst-minimal",
+  "expectedStdout": "True 4\n",
+  "request": {
+    "language": "python",
+    "code": "root = {\"v\": 8, \"l\": {\"v\": 3, \"l\": None, \"r\": None}, \"r\": {\"v\": 10, \"l\": None, \"r\": None}}\nvalue = 4\nnode = root\nwhile True:\n    side = \"l\" if value < node[\"v\"] else \"r\"\n    if node[side] is None:\n        node[side] = {\"v\": value, \"l\": None, \"r\": None}\n        break\n    node = node[side]\nfound = root\nwhile found is not None and found[\"v\"] != value:\n    found = found[\"l\"] if value < found[\"v\"] else found[\"r\"]\nprint(found is not None, found[\"v\"])"
+  },
+  "response": {
+    "status": "error",
+    "stdout": null,
+    "trace": null,
+    "error": {
+      "message": "Docker execution failed: Code execution timed out after 5 seconds",
+      "type": "RuntimeException"
+    }
+  }
+}

@@ -1,0 +1,188 @@
+{
+  "name": "java-trie-node-chain",
+  "expectedStdout": "true\n",
+  "request": {
+    "language": "java",
+    "code": "public class Main {\n    static class T { T c, a, t; boolean end; }\n    public static void main(String[] args) {\n        T root = new T(); root.c = new T(); root.c.a = new T();\n        root.c.a.t = new T(); root.c.a.t.end = true;\n        System.out.println(root.c.a.t.end);\n    }\n}"
+  },
+  "response": {
+    "status": "success",
+    "stdout": "true\n",
+    "trace": [
+      {
+        "event": "line",
+        "line": 5,
+        "function": "main",
+        "variables": {
+          "root": {
+            "ref": 56
+          }
+        },
+        "heap": [
+          {
+            "object": "58",
+            "type": "object",
+            "class": "Main$T",
+            "fields": {
+              "c": null,
+              "a": null,
+              "t": null,
+              "end": false
+            }
+          },
+          {
+            "object": "57",
+            "type": "object",
+            "class": "Main$T",
+            "fields": {
+              "c": null,
+              "a": {
+                "ref": 58
+              },
+              "t": null,
+              "end": false
+            }
+          },
+          {
+            "object": "56",
+            "type": "object",
+            "class": "Main$T",
+            "fields": {
+              "c": {
+                "ref": 57
+              },
+              "a": null,
+              "t": null,
+              "end": false
+            }
+          }
+        ]
+      },
+      {
+        "event": "line",
+        "line": 6,
+        "function": "main",
+        "variables": {
+          "root": {
+            "ref": 56
+          }
+        },
+        "heap": [
+          {
+            "object": "59",
+            "type": "object",
+            "class": "Main$T",
+            "fields": {
+              "c": null,
+              "a": null,
+              "t": null,
+              "end": true
+            }
+          },
+          {
+            "object": "58",
+            "type": "object",
+            "class": "Main$T",
+            "fields": {
+              "c": null,
+              "a": null,
+              "t": {
+                "ref": 59
+              },
+              "end": false
+            }
+          },
+          {
+            "object": "57",
+            "type": "object",
+            "class": "Main$T",
+            "fields": {
+              "c": null,
+              "a": {
+                "ref": 58
+              },
+              "t": null,
+              "end": false
+            }
+          },
+          {
+            "object": "56",
+            "type": "object",
+            "class": "Main$T",
+            "fields": {
+              "c": {
+                "ref": 57
+              },
+              "a": null,
+              "t": null,
+              "end": false
+            }
+          }
+        ]
+      },
+      {
+        "event": "line",
+        "line": 7,
+        "function": "main",
+        "variables": {
+          "root": {
+            "ref": 56
+          }
+        },
+        "heap": [
+          {
+            "object": "59",
+            "type": "object",
+            "class": "Main$T",
+            "fields": {
+              "c": null,
+              "a": null,
+              "t": null,
+              "end": true
+            }
+          },
+          {
+            "object": "58",
+            "type": "object",
+            "class": "Main$T",
+            "fields": {
+              "c": null,
+              "a": null,
+              "t": {
+                "ref": 59
+              },
+              "end": false
+            }
+          },
+          {
+            "object": "57",
+            "type": "object",
+            "class": "Main$T",
+            "fields": {
+              "c": null,
+              "a": {
+                "ref": 58
+              },
+              "t": null,
+              "end": false
+            }
+          },
+          {
+            "object": "56",
+            "type": "object",
+            "class": "Main$T",
+            "fields": {
+              "c": {
+                "ref": 57
+              },
+              "a": null,
+              "t": null,
+              "end": false
+            }
+          }
+        ]
+      }
+    ],
+    "error": null
+  }
+}

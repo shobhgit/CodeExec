@@ -1,0 +1,207 @@
+{
+  "name": "java-trie-minimal",
+  "expectedStdout": "true\n",
+  "request": {
+    "language": "java",
+    "code": "import java.util.HashMap;\npublic class Main {\n    static class T { HashMap<Character, T> children = new HashMap<>(); boolean end; }\n    public static void main(String[] args) {\n        T root = new T(); root.children.put('c', new T());\n        root.children.get('c').end = true;\n        System.out.println(root.children.get('c').end);\n    }\n}"
+  },
+  "response": {
+    "status": "success",
+    "stdout": "true\n",
+    "trace": [
+      {
+        "event": "line",
+        "line": 6,
+        "function": "main",
+        "variables": {
+          "root": {
+            "ref": 56
+          }
+        },
+        "heap": [
+          {
+            "object": "63",
+            "type": "array",
+            "items": [
+              null,
+              null,
+              null,
+              {
+                "ref": 64
+              },
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ]
+          },
+          {
+            "object": "57",
+            "type": "object",
+            "class": "java.util.HashMap",
+            "fields": {
+              "table": {
+                "ref": 63
+              },
+              "entrySet": null,
+              "size": 1,
+              "modCount": 1,
+              "threshold": 12,
+              "loadFactor": 0.75,
+              "keySet": null,
+              "values": null
+            }
+          },
+          {
+            "object": "56",
+            "type": "object",
+            "class": "Main$T",
+            "fields": {
+              "children": {
+                "ref": 57
+              },
+              "end": false
+            }
+          }
+        ]
+      },
+      {
+        "event": "line",
+        "line": 7,
+        "function": "main",
+        "variables": {
+          "root": {
+            "ref": 56
+          }
+        },
+        "heap": [
+          {
+            "object": "63",
+            "type": "array",
+            "items": [
+              null,
+              null,
+              null,
+              {
+                "ref": 64
+              },
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ]
+          },
+          {
+            "object": "57",
+            "type": "object",
+            "class": "java.util.HashMap",
+            "fields": {
+              "table": {
+                "ref": 63
+              },
+              "entrySet": null,
+              "size": 1,
+              "modCount": 1,
+              "threshold": 12,
+              "loadFactor": 0.75,
+              "keySet": null,
+              "values": null
+            }
+          },
+          {
+            "object": "56",
+            "type": "object",
+            "class": "Main$T",
+            "fields": {
+              "children": {
+                "ref": 57
+              },
+              "end": false
+            }
+          }
+        ]
+      },
+      {
+        "event": "line",
+        "line": 8,
+        "function": "main",
+        "variables": {
+          "root": {
+            "ref": 56
+          }
+        },
+        "heap": [
+          {
+            "object": "63",
+            "type": "array",
+            "items": [
+              null,
+              null,
+              null,
+              {
+                "ref": 64
+              },
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ]
+          },
+          {
+            "object": "57",
+            "type": "object",
+            "class": "java.util.HashMap",
+            "fields": {
+              "table": {
+                "ref": 63
+              },
+              "entrySet": null,
+              "size": 1,
+              "modCount": 1,
+              "threshold": 12,
+              "loadFactor": 0.75,
+              "keySet": null,
+              "values": null
+            }
+          },
+          {
+            "object": "56",
+            "type": "object",
+            "class": "Main$T",
+            "fields": {
+              "children": {
+                "ref": 57
+              },
+              "end": false
+            }
+          }
+        ]
+      }
+    ],
+    "error": null
+  }
+}

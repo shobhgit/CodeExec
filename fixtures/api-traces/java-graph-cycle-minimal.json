@@ -1,0 +1,153 @@
+{
+  "name": "java-graph-cycle-minimal",
+  "expectedStdout": "true\n",
+  "request": {
+    "language": "java",
+    "code": "public class Main {\n    static class N { N next; }\n    public static void main(String[] args) {\n        N a = new N(), b = new N(), c = new N();\n        a.next = b; b.next = c; c.next = a;\n        System.out.println(c.next == a && a.next.next == c);\n    }\n}"
+  },
+  "response": {
+    "status": "success",
+    "stdout": "true\n",
+    "trace": [
+      {
+        "event": "line",
+        "line": 5,
+        "function": "main",
+        "variables": {
+          "a": {
+            "ref": 56
+          },
+          "b": {
+            "ref": 57
+          },
+          "c": {
+            "ref": 58
+          }
+        },
+        "heap": [
+          {
+            "object": "56",
+            "type": "object",
+            "class": "Main$N",
+            "fields": {
+              "next": null
+            }
+          },
+          {
+            "object": "57",
+            "type": "object",
+            "class": "Main$N",
+            "fields": {
+              "next": null
+            }
+          },
+          {
+            "object": "58",
+            "type": "object",
+            "class": "Main$N",
+            "fields": {
+              "next": null
+            }
+          }
+        ]
+      },
+      {
+        "event": "line",
+        "line": 6,
+        "function": "main",
+        "variables": {
+          "a": {
+            "ref": 56
+          },
+          "b": {
+            "ref": 57
+          },
+          "c": {
+            "ref": 58
+          }
+        },
+        "heap": [
+          {
+            "object": "58",
+            "type": "object",
+            "class": "Main$N",
+            "fields": {
+              "next": {
+                "ref": 56
+              }
+            }
+          },
+          {
+            "object": "57",
+            "type": "object",
+            "class": "Main$N",
+            "fields": {
+              "next": {
+                "ref": 58
+              }
+            }
+          },
+          {
+            "object": "56",
+            "type": "object",
+            "class": "Main$N",
+            "fields": {
+              "next": {
+                "ref": 57
+              }
+            }
+          }
+        ]
+      },
+      {
+        "event": "line",
+        "line": 7,
+        "function": "main",
+        "variables": {
+          "a": {
+            "ref": 56
+          },
+          "b": {
+            "ref": 57
+          },
+          "c": {
+            "ref": 58
+          }
+        },
+        "heap": [
+          {
+            "object": "58",
+            "type": "object",
+            "class": "Main$N",
+            "fields": {
+              "next": {
+                "ref": 56
+              }
+            }
+          },
+          {
+            "object": "57",
+            "type": "object",
+            "class": "Main$N",
+            "fields": {
+              "next": {
+                "ref": 58
+              }
+            }
+          },
+          {
+            "object": "56",
+            "type": "object",
+            "class": "Main$N",
+            "fields": {
+              "next": {
+                "ref": 57
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "error": null
+  }
+}

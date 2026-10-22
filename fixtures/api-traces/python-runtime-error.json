@@ -1,0 +1,43 @@
+{
+  "name": "python-runtime-error",
+  "request": {
+    "code": "values = [1]\nprint(values[2])",
+    "language": "python"
+  },
+  "response": {
+    "status": "error",
+    "stdout": "",
+    "trace": [
+      {
+        "event": "line",
+        "line": 1
+      },
+      {
+        "event": "line",
+        "line": 2,
+        "variables": {
+          "values": {
+            "ref": 1
+          }
+        },
+        "heap": [
+          {
+            "object": "1",
+            "type": "list",
+            "items": [
+              1
+            ]
+          }
+        ]
+      },
+      {
+        "event": "exception",
+        "line": 2
+      }
+    ],
+    "error": {
+      "type": "ExecutionError",
+      "message": "An exception occurred during code execution."
+    }
+  }
+}

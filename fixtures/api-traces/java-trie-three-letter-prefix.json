@@ -1,0 +1,17 @@
+{
+  "name": "java-trie-three-letter-prefix",
+  "expectedStdout": "true\n",
+  "request": {
+    "language": "java",
+    "code": "import java.util.HashMap;\npublic class Main {\n    static class T { HashMap<Character, T> children = new HashMap<>(); boolean end; }\n    public static void main(String[] args) {\n        T root = new T(); root.children.put('c', new T());\n        T a = root.children.get('c'); a.children.put('a', new T());\n        T t = a.children.get('a'); t.children.put('t', new T());\n        t.children.get('t').end = true;\n        T found = root.children.get('c').children.get('a').children.get('t');\n        System.out.println(found.end);\n    }\n}"
+  },
+  "response": {
+    "status": "error",
+    "stdout": null,
+    "trace": null,
+    "error": {
+      "message": "Docker execution failed: Code execution timed out after 5 seconds",
+      "type": "RuntimeException"
+    }
+  }
+}

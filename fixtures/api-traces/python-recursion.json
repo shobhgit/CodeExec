@@ -1,0 +1,127 @@
+{
+  "name": "python-recursion",
+  "request": {
+    "code": "def factorial(n):\n    if n <= 1:\n        return 1\n    return n * factorial(n - 1)\nprint(factorial(5))",
+    "language": "python"
+  },
+  "response": {
+    "status": "success",
+    "stdout": "120\n",
+    "trace": [
+      {
+        "event": "line",
+        "line": 1
+      },
+      {
+        "event": "line",
+        "line": 5
+      },
+      {
+        "event": "call",
+        "line": 1,
+        "function": "factorial"
+      },
+      {
+        "event": "line",
+        "line": 2,
+        "function": "factorial"
+      },
+      {
+        "event": "line",
+        "line": 4,
+        "function": "factorial"
+      },
+      {
+        "event": "call",
+        "line": 1,
+        "function": "factorial"
+      },
+      {
+        "event": "line",
+        "line": 2,
+        "function": "factorial"
+      },
+      {
+        "event": "line",
+        "line": 4,
+        "function": "factorial"
+      },
+      {
+        "event": "call",
+        "line": 1,
+        "function": "factorial"
+      },
+      {
+        "event": "line",
+        "line": 2,
+        "function": "factorial"
+      },
+      {
+        "event": "line",
+        "line": 4,
+        "function": "factorial"
+      },
+      {
+        "event": "call",
+        "line": 1,
+        "function": "factorial"
+      },
+      {
+        "event": "line",
+        "line": 2,
+        "function": "factorial"
+      },
+      {
+        "event": "line",
+        "line": 4,
+        "function": "factorial"
+      },
+      {
+        "event": "call",
+        "line": 1,
+        "function": "factorial"
+      },
+      {
+        "event": "line",
+        "line": 2,
+        "function": "factorial"
+      },
+      {
+        "event": "line",
+        "line": 3,
+        "function": "factorial"
+      },
+      {
+        "event": "return",
+        "line": 3,
+        "function": "factorial"
+      },
+      {
+        "event": "return",
+        "line": 4,
+        "function": "factorial"
+      },
+      {
+        "event": "return",
+        "line": 4,
+        "function": "factorial"
+      },
+      {
+        "event": "return",
+        "line": 4,
+        "function": "factorial"
+      },
+      {
+        "event": "return",
+        "line": 4,
+        "function": "factorial"
+      },
+      {
+        "event": "return",
+        "line": 5,
+        "stdout": "120\n"
+      }
+    ],
+    "error": null
+  }
+}

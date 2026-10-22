@@ -1,0 +1,86 @@
+{
+  "name": "java-nested-array",
+  "request": {
+    "code": "public class Main {\n    public static void main(String[] args) {\n        int[][] grid = {{1, 2}, {3, 4}};\n        grid[1][0] = 8;\n        System.out.println(grid[1][0]);\n    }\n}",
+    "language": "java"
+  },
+  "response": {
+    "status": "success",
+    "stdout": "8\n",
+    "trace": [
+      {
+        "event": "line",
+        "line": 4,
+        "function": "main",
+        "variables": {
+          "grid": {
+            "ref": 55
+          }
+        },
+        "heap": [
+          {
+            "object": "55",
+            "type": "array",
+            "items": [
+              {
+                "ref": 56
+              },
+              {
+                "ref": 57
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "event": "line",
+        "line": 5,
+        "function": "main",
+        "variables": {
+          "grid": {
+            "ref": 55
+          }
+        },
+        "heap": [
+          {
+            "object": "55",
+            "type": "array",
+            "items": [
+              {
+                "ref": 56
+              },
+              {
+                "ref": 57
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "event": "line",
+        "line": 6,
+        "function": "main",
+        "variables": {
+          "grid": {
+            "ref": 55
+          }
+        },
+        "heap": [
+          {
+            "object": "55",
+            "type": "array",
+            "items": [
+              {
+                "ref": 56
+              },
+              {
+                "ref": 57
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "error": null
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "name": "python-trie-prefix",
+  "expectedStdout": "True True\n",
+  "request": {
+    "code": "root = {}\nfor word in [\"cat\", \"car\"]:\n    node = root\n    for char in word:\n        if char not in node:\n            node[char] = {}\n        node = node[char]\n    node[\"$\"] = True\nnode = root\nfor char in \"cat\":\n    node = node.get(char, {})\nprint(\"$\" in node, \"r\" in root[\"c\"])",
+    "language": "python"
+  },
+  "response": {
+    "status": "error",
+    "stdout": null,
+    "trace": null,
+    "error": {
+      "message": "Docker execution failed: Code execution timed out after 5 seconds",
+      "type": "RuntimeException"
+    }
+  }
+}

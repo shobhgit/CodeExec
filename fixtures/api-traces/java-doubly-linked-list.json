@@ -1,0 +1,175 @@
+{
+  "name": "java-doubly-linked-list",
+  "expectedStdout": "1 2 3 true\n",
+  "request": {
+    "code": "public class Main {\n    static class Node { int value; Node prev, next; Node(int value) { this.value = value; } }\n    public static void main(String[] args) {\n        Node first = new Node(1), middle = new Node(2), last = new Node(3);\n        first.next = middle; middle.prev = first; middle.next = last; last.prev = middle;\n        System.out.println(first.value + \" \" + first.next.value + \" \" + last.value + \" \" + (last.prev.prev == first));\n    }\n}",
+    "language": "java"
+  },
+  "response": {
+    "status": "success",
+    "stdout": "1 2 3 true\n",
+    "trace": [
+      {
+        "event": "line",
+        "line": 5,
+        "function": "main",
+        "variables": {
+          "first": {
+            "ref": 56
+          },
+          "middle": {
+            "ref": 57
+          },
+          "last": {
+            "ref": 58
+          }
+        },
+        "heap": [
+          {
+            "object": "56",
+            "type": "object",
+            "class": "Main$Node",
+            "fields": {
+              "value": 1,
+              "prev": null,
+              "next": null
+            }
+          },
+          {
+            "object": "57",
+            "type": "object",
+            "class": "Main$Node",
+            "fields": {
+              "value": 2,
+              "prev": null,
+              "next": null
+            }
+          },
+          {
+            "object": "58",
+            "type": "object",
+            "class": "Main$Node",
+            "fields": {
+              "value": 3,
+              "prev": null,
+              "next": null
+            }
+          }
+        ]
+      },
+      {
+        "event": "line",
+        "line": 6,
+        "function": "main",
+        "variables": {
+          "first": {
+            "ref": 56
+          },
+          "middle": {
+            "ref": 57
+          },
+          "last": {
+            "ref": 58
+          }
+        },
+        "heap": [
+          {
+            "object": "58",
+            "type": "object",
+            "class": "Main$Node",
+            "fields": {
+              "value": 3,
+              "prev": {
+                "ref": 57
+              },
+              "next": null
+            }
+          },
+          {
+            "object": "57",
+            "type": "object",
+            "class": "Main$Node",
+            "fields": {
+              "value": 2,
+              "prev": {
+                "ref": 56
+              },
+              "next": {
+                "ref": 58
+              }
+            }
+          },
+          {
+            "object": "56",
+            "type": "object",
+            "class": "Main$Node",
+            "fields": {
+              "value": 1,
+              "prev": null,
+              "next": {
+                "ref": 57
+              }
+            }
+          }
+        ]
+      },
+      {
+        "event": "line",
+        "line": 7,
+        "function": "main",
+        "variables": {
+          "first": {
+            "ref": 56
+          },
+          "middle": {
+            "ref": 57
+          },
+          "last": {
+            "ref": 58
+          }
+        },
+        "heap": [
+          {
+            "object": "58",
+            "type": "object",
+            "class": "Main$Node",
+            "fields": {
+              "value": 3,
+              "prev": {
+                "ref": 57
+              },
+              "next": null
+            }
+          },
+          {
+            "object": "57",
+            "type": "object",
+            "class": "Main$Node",
+            "fields": {
+              "value": 2,
+              "prev": {
+                "ref": 56
+              },
+              "next": {
+                "ref": 58
+              }
+            }
+          },
+          {
+            "object": "56",
+            "type": "object",
+            "class": "Main$Node",
+            "fields": {
+              "value": 1,
+              "prev": null,
+              "next": {
+                "ref": 57
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "error": null
+  }
+}

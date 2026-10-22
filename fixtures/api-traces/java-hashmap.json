@@ -1,0 +1,204 @@
+{
+  "name": "java-hashmap",
+  "request": {
+    "code": "import java.util.HashMap;\npublic class Main {\n    public static void main(String[] args) {\n        HashMap<String, Integer> scores = new HashMap<>();\n        scores.put(\"ada\", 3);\n        scores.put(\"linus\", 4);\n        System.out.println(scores.get(\"ada\") + scores.get(\"linus\"));\n    }\n}",
+    "language": "java"
+  },
+  "response": {
+    "status": "success",
+    "stdout": "7\n",
+    "trace": [
+      {
+        "event": "line",
+        "line": 5,
+        "function": "main",
+        "variables": {
+          "scores": {
+            "ref": 55
+          }
+        },
+        "heap": [
+          {
+            "object": "55",
+            "type": "object",
+            "class": "java.util.HashMap",
+            "fields": {
+              "table": null,
+              "entrySet": null,
+              "size": 0,
+              "modCount": 0,
+              "threshold": 0,
+              "loadFactor": 0.75,
+              "keySet": null,
+              "values": null
+            }
+          }
+        ]
+      },
+      {
+        "event": "line",
+        "line": 6,
+        "function": "main",
+        "variables": {
+          "scores": {
+            "ref": 55
+          }
+        },
+        "heap": [
+          {
+            "object": "61",
+            "type": "array",
+            "items": [
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              {
+                "ref": 62
+              }
+            ]
+          },
+          {
+            "object": "55",
+            "type": "object",
+            "class": "java.util.HashMap",
+            "fields": {
+              "table": {
+                "ref": 61
+              },
+              "entrySet": null,
+              "size": 1,
+              "modCount": 1,
+              "threshold": 12,
+              "loadFactor": 0.75,
+              "keySet": null,
+              "values": null
+            }
+          }
+        ]
+      },
+      {
+        "event": "line",
+        "line": 7,
+        "function": "main",
+        "variables": {
+          "scores": {
+            "ref": 55
+          }
+        },
+        "heap": [
+          {
+            "object": "61",
+            "type": "array",
+            "items": [
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              {
+                "ref": 63
+              },
+              null,
+              null,
+              {
+                "ref": 62
+              }
+            ]
+          },
+          {
+            "object": "55",
+            "type": "object",
+            "class": "java.util.HashMap",
+            "fields": {
+              "table": {
+                "ref": 61
+              },
+              "entrySet": null,
+              "size": 2,
+              "modCount": 2,
+              "threshold": 12,
+              "loadFactor": 0.75,
+              "keySet": null,
+              "values": null
+            }
+          }
+        ]
+      },
+      {
+        "event": "line",
+        "line": 8,
+        "function": "main",
+        "variables": {
+          "scores": {
+            "ref": 55
+          }
+        },
+        "heap": [
+          {
+            "object": "61",
+            "type": "array",
+            "items": [
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              {
+                "ref": 63
+              },
+              null,
+              null,
+              {
+                "ref": 62
+              }
+            ]
+          },
+          {
+            "object": "55",
+            "type": "object",
+            "class": "java.util.HashMap",
+            "fields": {
+              "table": {
+                "ref": 61
+              },
+              "entrySet": null,
+              "size": 2,
+              "modCount": 2,
+              "threshold": 12,
+              "loadFactor": 0.75,
+              "keySet": null,
+              "values": null
+            }
+          }
+        ]
+      }
+    ],
+    "error": null
+  }
+}

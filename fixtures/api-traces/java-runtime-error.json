@@ -1,0 +1,32 @@
+{
+  "name": "java-runtime-error",
+  "request": {
+    "code": "public class Main {\n    public static void main(String[] args) {\n        int zero = 0;\n        System.out.println(10 / zero);\n    }\n}",
+    "language": "java"
+  },
+  "response": {
+    "status": "error",
+    "stdout": "",
+    "trace": [
+      {
+        "event": "line",
+        "line": 4,
+        "function": "main",
+        "variables": {
+          "zero": 0
+        }
+      },
+      {
+        "event": "exception",
+        "line": 4,
+        "function": "main",
+        "type": "java.lang.ArithmeticException",
+        "message": "/ by zero"
+      }
+    ],
+    "error": {
+      "type": "java.lang.ArithmeticException",
+      "message": "/ by zero"
+    }
+  }
+}

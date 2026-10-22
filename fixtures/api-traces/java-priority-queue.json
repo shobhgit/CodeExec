@@ -1,0 +1,325 @@
+{
+  "name": "java-priority-queue",
+  "expectedStdout": "[1, 2, 5, 7]\n",
+  "request": {
+    "code": "import java.util.*;\npublic class Main {\n    public static void main(String[] args) {\n        PriorityQueue<Integer> values = new PriorityQueue<>(Arrays.asList(7, 2, 5));\n        values.add(1);\n        List<Integer> result = new ArrayList<>();\n        while (!values.isEmpty()) result.add(values.remove());\n        System.out.println(result);\n    }\n}",
+    "language": "java"
+  },
+  "response": {
+    "status": "success",
+    "stdout": "[1, 2, 5, 7]\n",
+    "trace": [
+      {
+        "event": "line",
+        "line": 5,
+        "function": "main",
+        "variables": {
+          "values": {
+            "ref": 58
+          }
+        },
+        "heap": [
+          {
+            "object": "64",
+            "type": "array",
+            "items": [
+              {
+                "ref": 65
+              },
+              {
+                "ref": 66
+              },
+              {
+                "ref": 67
+              }
+            ]
+          },
+          {
+            "object": "58",
+            "type": "object",
+            "class": "java.util.PriorityQueue",
+            "fields": {
+              "queue": {
+                "ref": 64
+              },
+              "size": 3,
+              "comparator": null,
+              "modCount": 0
+            }
+          }
+        ]
+      },
+      {
+        "event": "line",
+        "line": 6,
+        "function": "main",
+        "variables": {
+          "values": {
+            "ref": 58
+          }
+        },
+        "heap": [
+          {
+            "object": "68",
+            "type": "array",
+            "items": [
+              {
+                "ref": 69
+              },
+              {
+                "ref": 65
+              },
+              {
+                "ref": 67
+              },
+              {
+                "ref": 66
+              },
+              null,
+              null,
+              null,
+              null
+            ]
+          },
+          {
+            "object": "58",
+            "type": "object",
+            "class": "java.util.PriorityQueue",
+            "fields": {
+              "queue": {
+                "ref": 68
+              },
+              "size": 4,
+              "comparator": null,
+              "modCount": 1
+            }
+          }
+        ]
+      },
+      {
+        "event": "line",
+        "line": 7,
+        "function": "main",
+        "variables": {
+          "values": {
+            "ref": 58
+          },
+          "result": {
+            "ref": 70
+          }
+        },
+        "heap": [
+          {
+            "object": "68",
+            "type": "array",
+            "items": [
+              {
+                "ref": 69
+              },
+              {
+                "ref": 65
+              },
+              {
+                "ref": 67
+              },
+              {
+                "ref": 66
+              },
+              null,
+              null,
+              null,
+              null
+            ]
+          },
+          {
+            "object": "58",
+            "type": "object",
+            "class": "java.util.PriorityQueue",
+            "fields": {
+              "queue": {
+                "ref": 68
+              },
+              "size": 4,
+              "comparator": null,
+              "modCount": 1
+            }
+          },
+          {
+            "object": "77",
+            "type": "array",
+            "items": []
+          },
+          {
+            "object": "70",
+            "type": "object",
+            "class": "java.util.ArrayList",
+            "fields": {
+              "elementData": {
+                "ref": 77
+              },
+              "size": 0,
+              "modCount": 0
+            }
+          }
+        ]
+      },
+      {
+        "event": "line",
+        "line": 8,
+        "function": "main",
+        "variables": {
+          "values": {
+            "ref": 58
+          },
+          "result": {
+            "ref": 70
+          }
+        },
+        "heap": [
+          {
+            "object": "68",
+            "type": "array",
+            "items": [
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ]
+          },
+          {
+            "object": "58",
+            "type": "object",
+            "class": "java.util.PriorityQueue",
+            "fields": {
+              "queue": {
+                "ref": 68
+              },
+              "size": 0,
+              "comparator": null,
+              "modCount": 5
+            }
+          },
+          {
+            "object": "78",
+            "type": "array",
+            "items": [
+              {
+                "ref": 69
+              },
+              {
+                "ref": 65
+              },
+              {
+                "ref": 67
+              },
+              {
+                "ref": 66
+              },
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ]
+          },
+          {
+            "object": "70",
+            "type": "object",
+            "class": "java.util.ArrayList",
+            "fields": {
+              "elementData": {
+                "ref": 78
+              },
+              "size": 4,
+              "modCount": 4
+            }
+          }
+        ]
+      },
+      {
+        "event": "line",
+        "line": 9,
+        "function": "main",
+        "variables": {
+          "values": {
+            "ref": 58
+          },
+          "result": {
+            "ref": 70
+          }
+        },
+        "heap": [
+          {
+            "object": "68",
+            "type": "array",
+            "items": [
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ]
+          },
+          {
+            "object": "58",
+            "type": "object",
+            "class": "java.util.PriorityQueue",
+            "fields": {
+              "queue": {
+                "ref": 68
+              },
+              "size": 0,
+              "comparator": null,
+              "modCount": 5
+            }
+          },
+          {
+            "object": "78",
+            "type": "array",
+            "items": [
+              {
+                "ref": 69
+              },
+              {
+                "ref": 65
+              },
+              {
+                "ref": 67
+              },
+              {
+                "ref": 66
+              },
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ]
+          },
+          {
+            "object": "70",
+            "type": "object",
+            "class": "java.util.ArrayList",
+            "fields": {
+              "elementData": {
+                "ref": 78
+              },
+              "size": 4,
+              "modCount": 4
+            }
+          }
+        ]
+      }
+    ],
+    "error": null
+  }
+}

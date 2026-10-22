@@ -1,0 +1,17 @@
+{
+  "name": "python-graph-cycle-shared-refs",
+  "expectedStdout": "3 True True\n",
+  "request": {
+    "code": "class Node: pass\na = Node()\nb = Node()\nc = Node()\na.name = \"A\"\nb.name = \"B\"\nc.name = \"C\"\na.neighbors = [b, c]\nb.neighbors = [c]\nc.neighbors = [a]\nseen = set()\nqueue = [a]\nwhile queue:\n    node = queue.pop(0)\n    if node.name in seen:\n        continue\n    seen.add(node.name)\n    queue.extend(node.neighbors)\nprint(len(seen), a.neighbors[1] is c, c.neighbors[0] is a)",
+    "language": "python"
+  },
+  "response": {
+    "status": "error",
+    "stdout": null,
+    "trace": null,
+    "error": {
+      "message": "Docker execution failed: Code execution timed out after 5 seconds",
+      "type": "RuntimeException"
+    }
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "name": "python-dictionary",
+  "request": {
+    "code": "scores = {\"ada\": 1, \"linus\": 2}\nscores[\"ada\"] = 3\nprint(scores)",
+    "language": "python"
+  },
+  "response": {
+    "status": "success",
+    "stdout": "{'ada': 3, 'linus': 2}\n",
+    "trace": [
+      {
+        "event": "line",
+        "line": 1
+      },
+      {
+        "event": "line",
+        "line": 2,
+        "variables": {
+          "scores": {
+            "ref": 1
+          }
+        },
+        "heap": [
+          {
+            "object": "1",
+            "type": "dict",
+            "entries": [
+              {
+                "key": "ada",
+                "value": 1
+              },
+              {
+                "key": "linus",
+                "value": 2
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "event": "line",
+        "line": 3,
+        "heap": [
+          {
+            "object": "1",
+            "type": "dict",
+            "entries": [
+              {
+                "key": "ada",
+                "value": 3
+              },
+              {
+                "key": "linus",
+                "value": 2
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "event": "return",
+        "line": 3,
+        "stdout": "{'ada': 3, 'linus': 2}\n"
+      }
+    ],
+    "error": null
+  }
+}

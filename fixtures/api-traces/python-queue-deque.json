@@ -1,0 +1,80 @@
+{
+  "name": "python-queue-deque",
+  "request": {
+    "code": "from collections import deque\nqueue = deque([1, 2])\nqueue.append(3)\nfirst = queue.popleft()\nprint(first, list(queue))",
+    "language": "python"
+  },
+  "response": {
+    "status": "success",
+    "stdout": "1 [2, 3]\n",
+    "trace": [
+      {
+        "event": "line",
+        "line": 1
+      },
+      {
+        "event": "line",
+        "line": 2
+      },
+      {
+        "event": "line",
+        "line": 3,
+        "variables": {
+          "queue": {
+            "ref": 1
+          }
+        },
+        "heap": [
+          {
+            "object": "1",
+            "value": [
+              "INSTANCE_PPRINT",
+              "deque",
+              "deque([1, 2])"
+            ]
+          }
+        ]
+      },
+      {
+        "event": "line",
+        "line": 4,
+        "heap": [
+          {
+            "object": "1",
+            "value": [
+              "INSTANCE_PPRINT",
+              "deque",
+              "deque([1, 2, 3])"
+            ]
+          }
+        ]
+      },
+      {
+        "event": "line",
+        "line": 5,
+        "variables": {
+          "queue": {
+            "ref": 1
+          },
+          "first": 1
+        },
+        "heap": [
+          {
+            "object": "1",
+            "value": [
+              "INSTANCE_PPRINT",
+              "deque",
+              "deque([2, 3])"
+            ]
+          }
+        ]
+      },
+      {
+        "event": "return",
+        "line": 5,
+        "stdout": "1 [2, 3]\n"
+      }
+    ],
+    "error": null
+  }
+}

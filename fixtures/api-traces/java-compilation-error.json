@@ -1,0 +1,16 @@
+{
+  "name": "java-compilation-error",
+  "request": {
+    "code": "public class Main { public static void main(String[] args) { int x = ; } }",
+    "language": "java"
+  },
+  "response": {
+    "status": "error",
+    "stdout": null,
+    "trace": null,
+    "error": {
+      "type": "CompilationError",
+      "message": "/code/Main.java:1: error: illegal start of expression\npublic class Main { public static void main(String[] args) { int x = ; } }\n                                                                     ^\n1 error\n"
+    }
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "name": "java-array",
+  "request": {
+    "code": "public class Main {\n    public static void main(String[] args) {\n        int[] values = {1, 2, 3};\n        values[1] = 9;\n        System.out.println(values[1]);\n    }\n}",
+    "language": "java"
+  },
+  "response": {
+    "status": "success",
+    "stdout": "9\n",
+    "trace": [
+      {
+        "event": "line",
+        "line": 4,
+        "function": "main",
+        "variables": {
+          "values": {
+            "ref": 55
+          }
+        },
+        "heap": [
+          {
+            "object": "55",
+            "type": "array",
+            "items": [
+              1,
+              2,
+              3
+            ]
+          }
+        ]
+      },
+      {
+        "event": "line",
+        "line": 5,
+        "function": "main",
+        "variables": {
+          "values": {
+            "ref": 55
+          }
+        },
+        "heap": [
+          {
+            "object": "55",
+            "type": "array",
+            "items": [
+              1,
+              9,
+              3
+            ]
+          }
+        ]
+      },
+      {
+        "event": "line",
+        "line": 6,
+        "function": "main",
+        "variables": {
+          "values": {
+            "ref": 55
+          }
+        },
+        "heap": [
+          {
+            "object": "55",
+            "type": "array",
+            "items": [
+              1,
+              9,
+              3
+            ]
+          }
+        ]
+      }
+    ],
+    "error": null
+  }
+}

@@ -1,0 +1,115 @@
+{
+  "name": "python-binary-tree-minimal",
+  "request": {
+    "code": "class Node: pass\nroot = Node()\nroot.value = 2\nroot.left = Node()\nroot.left.value = 1\nroot.right = Node()\nroot.right.value = 3\nprint(root.left.value + root.value + root.right.value)",
+    "language": "python"
+  },
+  "response": {
+    "status": "success",
+    "stdout": "6\n",
+    "trace": [
+      {
+        "event": "line",
+        "line": 1
+      },
+      {
+        "event": "line",
+        "line": 2
+      },
+      {
+        "event": "line",
+        "line": 3,
+        "variables": {
+          "root": {
+            "ref": 1
+          }
+        }
+      },
+      {
+        "event": "line",
+        "line": 4,
+        "heap": [
+          {
+            "object": "1",
+            "type": "object",
+            "class": "Node",
+            "changes": {
+              "value": 2
+            }
+          }
+        ]
+      },
+      {
+        "event": "line",
+        "line": 5,
+        "heap": [
+          {
+            "object": "1",
+            "type": "object",
+            "class": "Node",
+            "changes": {
+              "left": {
+                "ref": 2
+              },
+              "value": 2
+            }
+          }
+        ]
+      },
+      {
+        "event": "line",
+        "line": 6,
+        "heap": [
+          {
+            "object": "2",
+            "type": "object",
+            "class": "Node",
+            "changes": {
+              "value": 1
+            }
+          }
+        ]
+      },
+      {
+        "event": "line",
+        "line": 7,
+        "heap": [
+          {
+            "object": "1",
+            "type": "object",
+            "class": "Node",
+            "changes": {
+              "left": {
+                "ref": 2
+              },
+              "right": {
+                "ref": 3
+              },
+              "value": 2
+            }
+          }
+        ]
+      },
+      {
+        "event": "line",
+        "line": 8,
+        "heap": [
+          {
+            "object": "3",
+            "type": "object",
+            "class": "Node",
+            "changes": {
+              "value": 3
+            }
+          }
+        ]
+      },
+      {
+        "event": "return",
+        "line": 8,
+        "stdout": "6\n"
+      }
+    ],
+    "error": null
+  }
+}
