@@ -1,0 +1,11 @@
+# AWS Region where you want to deploy
+aws_region = "us-east-1"
+
+# Recommended instance type: t3.medium (2 vCPU, 4GB RAM)
+instance_type = "t3.medium"
+
+# The exact name of your EC2 Key Pair created in the AWS Console (without .pem extension)
+key_name = "your-ec2-keypair-name"
+
+# Optional: Restrict SSH to your public IP (e.g., "198.51.100.4/32")
+allowed_ssh_cidr = "0.0.0.0/0"
