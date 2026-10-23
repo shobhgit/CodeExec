@@ -102,17 +102,18 @@ resource "aws_instance" "codeexec_server" {
     delete_on_termination = true
   }
 
-  # Bootstrap Docker, Docker Compose, Git, and a 2GB swapfile for compilation safety
+  # Bootstrap Docker, Docker Compose, Git, and a 4GB swapfile for compilation on t3.micro
   user_data = <<-EOF
               #!/usr/bin/env bash
               set -e
 
-              # 1. Setup 2GB swap space to prevent OOM during builds
-              fallocate -l 2G /swapfile || dd if=/dev/zero of=/swapfile bs=1M count=2048
+              # 1. Setup 4GB swap space to ensure builds never run out of memory on t3.micro (1GB RAM)
+              fallocate -l 4G /swapfile || dd if=/dev/zero of=/swapfile bs=1M count=4096
               chmod 600 /swapfile
               mkswap /swapfile
               swapon /swapfile
               echo '/swapfile none swap sw 0 0' >> /etc/fstab
+              sysctl vm.swappiness=60
 
               # 2. Update system and install prerequisites
               apt-get update -y

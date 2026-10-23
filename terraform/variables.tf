@@ -5,9 +5,9 @@ variable "aws_region" {
 }
 
 variable "instance_type" {
-  description = "EC2 instance type. t3.medium (2 vCPU, 4GB RAM) is recommended for Docker builds and compilation."
+  description = "EC2 instance type. t3.micro (2 vCPU, 4GB RAM) is recommended for Docker builds and compilation."
   type        = string
-  default     = "t3.medium"
+  default     = "t3.micro"
 }
 
 variable "key_name" {

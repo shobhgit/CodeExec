@@ -1,8 +1,8 @@
 # AWS Region where you want to deploy
 aws_region = "us-east-1"
 
-# Recommended instance type: t3.medium (2 vCPU, 4GB RAM)
-instance_type = "t3.medium"
+# AWS Free Tier eligible instance type
+instance_type = "t3.micro"
 
 # The exact name of your EC2 Key Pair created in the AWS Console (without .pem extension)
 key_name = "your-ec2-keypair-name"
