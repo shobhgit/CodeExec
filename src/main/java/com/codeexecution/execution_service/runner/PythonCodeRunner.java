@@ -44,9 +44,6 @@ public class PythonCodeRunner implements CodeRunner {
             JsonNode result =
                     objectMapper.readTree(output);
 
-            String status =
-                    result.path("status").asText();
-
             String stdout =
                     result.has("stdout")
                             ? result.get("stdout").asText()
@@ -74,9 +71,9 @@ public class PythonCodeRunner implements CodeRunner {
                         .equals(event)) {
 
                     Object trace =
-                            objectMapper.convertValue(
+                            ExecutionResponseMapper.convert(
                                     traceNode,
-                                    Object.class
+                                    objectMapper
                             );
 
                     return new ExecutionResponse(
@@ -96,46 +93,12 @@ public class PythonCodeRunner implements CodeRunner {
             }
 
 
-            // Normal trace conversion
-            Object trace = traceNode != null
-                    ? objectMapper.convertValue(
-                    traceNode,
-                    Object.class
-            )
-                    : null;
-
-
-            // Convert tracer error if present
-            Object error = result.has("error")
-                    ? objectMapper.convertValue(
-                    result.get("error"),
-                    Object.class
-            )
-                    : null;
-
-
-            // Return normal execution result
-            return new ExecutionResponse(
-                    status,
-                    stdout,
-                    trace,
-                    error
+            return ExecutionResponseMapper.fromNode(
+                    result,
+                    objectMapper
             );
-
         } catch (Exception e) {
-
-            return new ExecutionResponse(
-                    "error",
-                    null,
-                    null,
-                    Map.of(
-                            "type",
-                            e.getClass()
-                                    .getSimpleName(),
-                            "message",
-                            e.getMessage()
-                    )
-            );
+            return ExecutionResponseMapper.error(e);
         }
     }
 }

@@ -1,11 +1,10 @@
 # AWS Region where you want to deploy
 aws_region = "us-east-1"
 
-# AWS Free Tier eligible instance type
+# Instance type for a small prototype; increase capacity for concurrent executions.
 instance_type = "t3.micro"
 
-# The exact name of your EC2 Key Pair created in the AWS Console (without .pem extension)
-key_name = "CodeExec-server"
-
-# Optional: Restrict SSH to your public IP (e.g., "198.51.100.4/32")
-allowed_ssh_cidr = "0.0.0.0/0"
+# SSH is disabled by default. Systems Manager Session Manager is configured for access.
+# To enable SSH, set both values and restrict the CIDR to your public IP:
+# key_name         = "CodeExec-server"
+# allowed_ssh_cidr = "198.51.100.4/32"

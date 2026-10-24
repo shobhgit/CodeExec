@@ -5,18 +5,24 @@ variable "aws_region" {
 }
 
 variable "instance_type" {
-  description = "EC2 instance type. t3.micro (2 vCPU, 4GB RAM) is recommended for Docker builds and compilation."
+  description = "EC2 instance type. t3.micro has 2 vCPUs and 1 GiB RAM; use a larger type for builds or concurrent runs."
   type        = string
   default     = "t3.micro"
 }
 
 variable "key_name" {
-  description = "The name of your existing EC2 Key Pair (created in AWS EC2 Console) for SSH access"
+  description = "Optional existing EC2 Key Pair name for SSH access; prefer Systems Manager Session Manager."
   type        = string
+  default     = null
 }
 
 variable "allowed_ssh_cidr" {
-  description = "CIDR block permitted to SSH into EC2. Default is 0.0.0.0/0, but you can restrict it to your IP"
+  description = "Optional IPv4 CIDR permitted to SSH into EC2. Leave null to keep SSH closed and use Systems Manager."
   type        = string
-  default     = "0.0.0.0/0"
+  default     = null
+
+  validation {
+    condition     = var.allowed_ssh_cidr == null || can(cidrnetmask(var.allowed_ssh_cidr))
+    error_message = "allowed_ssh_cidr must be null or a valid IPv4 CIDR block."
+  }
 }
