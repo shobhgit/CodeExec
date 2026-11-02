@@ -6,6 +6,7 @@ import com.codeexecution.execution_service.runner.CodeRunner;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class CodeExecutionServiceImpl implements CodeExecutionService {
@@ -20,17 +21,17 @@ public class CodeExecutionServiceImpl implements CodeExecutionService {
     public ExecutionResponse execute(ExecutionRequest request) {
 
         if (request == null || request.getLanguage() == null) {
-            return new ExecutionResponse("error", null, null, java.util.Map.of(
-                    "type", "BadRequest",
-                    "message", "Execution request and language must not be null"
-            ));
+            return errorResponse(
+                    "BadRequest",
+                    "Execution request and language must not be null"
+            );
         }
 
         if (request.getCode() == null) {
-            return new ExecutionResponse("error", null, null, java.util.Map.of(
-                    "type", "BadRequest",
-                    "message", "Code payload must not be null"
-            ));
+            return errorResponse(
+                    "BadRequest",
+                    "Code payload must not be null"
+            );
         }
 
         String language = request.getLanguage().toLowerCase().trim();
@@ -43,12 +44,24 @@ public class CodeExecutionServiceImpl implements CodeExecutionService {
                 .orElse(null);
 
         if (selectedRunner == null) {
-            return new ExecutionResponse("error", null, null, java.util.Map.of(
-                    "type", "UnsupportedLanguage",
-                    "message", "Language '" + language + "' is not supported. Supported languages: java, python"
-            ));
+            return errorResponse(
+                    "UnsupportedLanguage",
+                    "Language '" + language + "' is not supported. Supported languages: java, python"
+            );
         }
 
         return selectedRunner.execute(request.getCode());
+    }
+
+    private ExecutionResponse errorResponse(String type, String message) {
+        return new ExecutionResponse(
+                "error",
+                null,
+                null,
+                Map.of(
+                        "type", type,
+                        "message", message
+                )
+        );
     }
 }

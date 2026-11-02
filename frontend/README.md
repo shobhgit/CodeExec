@@ -22,7 +22,7 @@ A reactive visual code execution and step-by-step trace animator built with **Re
   - **Union-Find (DSU)**: Parent pointer array + connected component clusters.
   - **Recursion**: 3D-feeling call stack tower with frame parameters and active call highlights.
 - **55 Built-in Catalog Presets**: Preloaded with every single fixture from `fixtures/api-traces/` and `api-input-output-catalog.md`.
-- **Live Code Execution**: Switch between Python and Java, edit or write any custom code, and run it live on the backend at `http://localhost:8080/api/execute`.
+- **Live Code Execution**: Switch between Python and Java, edit or write any custom code, and run it through `/api/execute`. During local development, Vite proxies this route to `http://localhost:8080`; in the deployed app, Nginx proxies it to the backend over the private Compose network.
 - **Playback Controls**: Play, Pause, Step Forward, Step Backward, Jump to Start, Jump to End, Timeline Scrubbing slider, and speed control (`0.5x` to `3x`).
 - **Multiple Views**: Tabbed switcher between `Specialized Shape`, `Heap Objects`, `Variables`, and `Stdout Terminal`.
 

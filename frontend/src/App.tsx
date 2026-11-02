@@ -105,17 +105,8 @@ export const App: React.FC = () => {
         if (res.ok) {
           setBackendOnline(true);
         }
-      } catch (e) {
-        try {
-          const res2 = await fetch('http://localhost:8080/api/execute', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ language: 'python', code: 'x = 1' }),
-          });
-          if (res2.ok) setBackendOnline(true);
-        } catch (e2) {
-          setBackendOnline(false);
-        }
+      } catch {
+        setBackendOnline(false);
       }
     };
 
@@ -136,20 +127,11 @@ export const App: React.FC = () => {
     };
 
     try {
-      let response: Response;
-      try {
-        response = await fetch('/api/execute', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload),
-        });
-      } catch (proxyError) {
-        response = await fetch('http://localhost:8080/api/execute', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload),
-        });
-      }
+      const response = await fetch('/api/execute', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
 
       const data: ExecutionResponse = await response.json();
 
@@ -171,11 +153,18 @@ export const App: React.FC = () => {
       }
     } catch (err: any) {
       setExecutionError(
-        `Failed to reach backend execution server: ${err.message || 'Unknown network error'}. Make sure Docker execution-service is running on port 8080.`
+        `Failed to reach the execution service: ${err.message || 'Unknown network error'}. Check that the application services are running.`
       );
     } finally {
       setIsLoading(false);
     }
+  };
+
+  const resetExecutionTrace = () => {
+    setRawTrace([]);
+    setCurrentStepIndex(0);
+    setIsPlaying(false);
+    setExecutionError(null);
   };
 
   // Handle Data Structure Selection Change (NO auto-execution)
@@ -188,11 +177,7 @@ export const App: React.FC = () => {
 
     const preset = getDSPreset(newDS, language, defaultVar);
     setCode(preset.code);
-    // Reset trace and wait for user to click Run & Trace
-    setRawTrace([]);
-    setCurrentStepIndex(0);
-    setIsPlaying(false);
-    setExecutionError(null);
+    resetExecutionTrace();
   };
 
   // Handle Variant Change (NO auto-execution)
@@ -200,10 +185,7 @@ export const App: React.FC = () => {
     setSelectedVariant(newVariant);
     const preset = getDSPreset(selectedDS, language, newVariant);
     setCode(preset.code);
-    setRawTrace([]);
-    setCurrentStepIndex(0);
-    setIsPlaying(false);
-    setExecutionError(null);
+    resetExecutionTrace();
   };
 
   // Handle Language Change (NO auto-execution)
@@ -211,10 +193,7 @@ export const App: React.FC = () => {
     setLanguage(newLang);
     const preset = getDSPreset(selectedDS, newLang, selectedVariant);
     setCode(preset.code);
-    setRawTrace([]);
-    setCurrentStepIndex(0);
-    setIsPlaying(false);
-    setExecutionError(null);
+    resetExecutionTrace();
   };
 
   // Reset to initial step

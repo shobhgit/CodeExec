@@ -20,19 +20,9 @@ data "aws_vpc" "default" {
 # Security Group for CodeExec
 resource "aws_security_group" "codeexec_sg" {
   name        = "codeexec-security-group"
-  description = "Allow inbound SSH (22), HTTP (80), HTTPS (443), and direct backend (8080)"
+  description = "Allow public HTTP and optional CIDR-restricted SSH"
   vpc_id      = data.aws_vpc.default.id
 
-  # SSH
-  ingress {
-    description = "SSH access"
-    from_port   = 22
-    to_port     = 22
-    protocol    = "tcp"
-    cidr_blocks = [var.allowed_ssh_cidr]
-  }
-
-  # HTTP
   ingress {
     description = "HTTP web traffic"
     from_port   = 80
@@ -41,25 +31,17 @@ resource "aws_security_group" "codeexec_sg" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-  # HTTPS
-  ingress {
-    description = "HTTPS web traffic"
-    from_port   = 443
-    to_port     = 443
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
+  dynamic "ingress" {
+    for_each = var.allowed_ssh_cidr == null ? [] : [var.allowed_ssh_cidr]
+    content {
+      description = "SSH access from the configured CIDR"
+      from_port   = 22
+      to_port     = 22
+      protocol    = "tcp"
+      cidr_blocks = [ingress.value]
+    }
   }
 
-  # Spring Boot Backend direct access (optional/debugging)
-  ingress {
-    description = "Spring Boot backend API direct access"
-    from_port   = 8080
-    to_port     = 8080
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-
-  # Outbound access (required for apt, docker pull, maven dependencies)
   egress {
     description = "Allow all outbound traffic"
     from_port   = 0
@@ -71,6 +53,32 @@ resource "aws_security_group" "codeexec_sg" {
   tags = {
     Name = "codeexec-security-group"
   }
+}
+
+# Use Systems Manager for administration without opening SSH to the internet.
+resource "aws_iam_role" "codeexec_instance" {
+  name = "codeexec-instance-role"
+
+  assume_role_policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [{
+      Action = "sts:AssumeRole"
+      Effect = "Allow"
+      Principal = {
+        Service = "ec2.amazonaws.com"
+      }
+    }]
+  })
+}
+
+resource "aws_iam_role_policy_attachment" "codeexec_ssm" {
+  role       = aws_iam_role.codeexec_instance.name
+  policy_arn = "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
+}
+
+resource "aws_iam_instance_profile" "codeexec" {
+  name = "codeexec-instance-profile"
+  role = aws_iam_role.codeexec_instance.name
 }
 
 # Query the latest official Ubuntu 24.04 LTS AMI for the target region
@@ -94,6 +102,7 @@ resource "aws_instance" "codeexec_server" {
   ami                    = data.aws_ami.ubuntu.id
   instance_type          = var.instance_type
   key_name               = var.key_name
+  iam_instance_profile   = aws_iam_instance_profile.codeexec.name
   vpc_security_group_ids = [aws_security_group.codeexec_sg.id]
 
   root_block_device {
@@ -102,12 +111,12 @@ resource "aws_instance" "codeexec_server" {
     delete_on_termination = true
   }
 
-  # Bootstrap Docker, Docker Compose, Git, and a 4GB swapfile for compilation on t3.micro
+  # Bootstrap Docker, Docker Compose, SSM, Git, and swap for builds on small instances.
   user_data = <<-EOF
               #!/usr/bin/env bash
               set -e
 
-              # 1. Setup 4GB swap space to ensure builds never run out of memory on t3.micro (1GB RAM)
+              # 1. Setup 4GB swap space to reduce build failures on small instances (t3.micro has 1 GiB RAM).
               fallocate -l 4G /swapfile || dd if=/dev/zero of=/swapfile bs=1M count=4096
               chmod 600 /swapfile
               mkswap /swapfile
@@ -117,7 +126,7 @@ resource "aws_instance" "codeexec_server" {
 
               # 2. Update system and install prerequisites
               apt-get update -y
-              apt-get install -y ca-certificates curl gnupg git
+              apt-get install -y ca-certificates curl gnupg git snapd
 
               # 3. Install official Docker and Docker Compose Plugin
               install -m 0755 -d /etc/apt/keyrings
@@ -136,6 +145,13 @@ resource "aws_instance" "codeexec_server" {
               systemctl enable docker
               systemctl start docker
               usermod -aG docker ubuntu
+
+              # 5. Enable Systems Manager access (IAM role is attached to this instance).
+              if ! snap list amazon-ssm-agent >/dev/null 2>&1; then
+                snap install amazon-ssm-agent --classic
+              fi
+              systemctl enable snap.amazon-ssm-agent.amazon-ssm-agent.service
+              systemctl start snap.amazon-ssm-agent.amazon-ssm-agent.service
 
               echo "CodeExec host provisioning complete" > /var/log/codeexec-init.log
               EOF
